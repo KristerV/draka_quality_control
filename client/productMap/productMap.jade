@@ -18,7 +18,7 @@ template(name="productMap")
 							tr(data-map-id="{{_id}}")
 								td {{code}}
 								td {{description}}
-								td 
-									input.form-control(name="resistance" value="{{resistance}}")
-								td 
-									input.form-control(name="cooldownTime" value="{{cooldownTime}}")
+								td(class="{{#if $not resistance}}bg-danger{{/if}}")
+									input.form-control.red-if-none(name="resistance" value="{{resistance}}")
+								td(class="{{#if $not cooldownTime}}bg-danger{{/if}}")
+									input.form-control.red-if-none(name="cooldownTime" value="{{cooldownTime}}")
