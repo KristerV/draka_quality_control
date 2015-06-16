@@ -31,8 +31,12 @@ template(name="productsList")
 							              input-col-class="col-sm-9")
 						button.btn.btn-success(type="submit") Sisesta toode (käivita timer)
 	.productsList.container
-		button.btn.btn-success.btn-raised(data-toggle="modal" data-target="#new-product-dialog") Sisesta uus toode
 		+buttonToProductMap
+		button.btn.btn-success.btn-raised(data-toggle="modal" data-target="#new-product-dialog") Sisesta uus toode
+		.btn-group(role="group")
+			button.btn.btn-toggle(name="Ootel" type="button" class="{{#if $.Session.equals 'filterOotel' true}}active{{/if}}") Ootel
+			button.btn.btn-toggle(name="Katsetamisele" type="button" class="{{#if $.Session.equals 'filterKatsetamisele' true}}active{{/if}}") Katsetamisele
+			button.btn.btn-toggle(name="Kinnitatud" type="button" class="{{#if $.Session.equals 'filterKinnitatud' true}}active{{/if}}") Kinnitatud
 		.panel
 			.panel-body
 				table.table.table-hover

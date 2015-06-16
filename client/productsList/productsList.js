@@ -37,3 +37,17 @@ Template.productsList.helpers({
 		return map.resistance
 	}
 })
+Template.productsList.events({
+	'click button[name="Ootel"]': function(e) {
+		var current = Session.get("filterOotel")
+		Session.set("filterOotel", !current)
+	},
+	'click button[name="Katsetamisele"]': function(e) {
+		var current = Session.get("filterKatsetamisele")
+		Session.set("filterKatsetamisele", !current)
+	},
+	'click button[name="Kinnitatud"]': function(e) {
+		var current = Session.get("filterKinnitatud")
+		Session.set("filterKinnitatud", !current)
+	},
+})
