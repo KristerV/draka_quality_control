@@ -42,7 +42,6 @@ template(name="productsList")
 				table.table.table-hover
 					thead
 						tr
-							th Staatus
 							th Tootekood
 							th Tootekirjeldus
 							th Partii
@@ -52,8 +51,7 @@ template(name="productsList")
 							th(style="text-align:right") Aega jäänud
 					tbody
 						each products
-							tr
-								td {{status}}
+							tr(class="{{#if $eq status 'Katsetamisele'}}bg-green clickable{{/if}}" data-product-id="{{_id}}")
 								td {{productCode}}
 								td {{productDescription}}
 								td {{consignment}}

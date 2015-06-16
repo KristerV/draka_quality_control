@@ -16,16 +16,23 @@ Template.productsList.helpers({
 		return map.description
 	},
 	timeLeft: function() {
+		if (this.status != 'Ootel')
+			return this.status
 		var map = ProductMapCollection.findOne(this.mapId)
 		if (!map)
 			return null
 
 		var start = moment(this.createdAt)
+		
 		var cooldownTime = map.cooldownTime
 		if (!cooldownTime)
 			return null
-		var now = start.add(cooldownTime, 'hours').subtract(TimeSync.serverTime())
-		var duration = moment.duration(now.valueOf())
+
+		// Manual control if product is ready
+		if (start.add(cooldownTime, 'hours') < moment(TimeSync.serverTime()))
+			return "valmis"
+		var difference = start.add(cooldownTime, 'hours').subtract(TimeSync.serverTime())
+		var duration = moment.duration(difference.valueOf())
 		var dayString;
 		if (duration.days() == 0)
 			dayString = ""
@@ -57,4 +64,8 @@ Template.productsList.events({
 		var current = Session.get("filterKinnitatud")
 		Session.set("filterKinnitatud", !current)
 	},
+	'click tr.clickable': function(e) {
+		var productId = $(e.currentTarget).attr('data-product-id')
+		Router.go('/product/'+productId)
+	}
 })
