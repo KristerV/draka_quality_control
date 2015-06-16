@@ -5,8 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 hilios:jquery.countdown
 mquandalle:jade
 less
@@ -14,5 +12,9 @@ aldeed:autoform
 aldeed:collection2
 dburles:collection-helpers
 momentjs:moment
-harrison:papa-parse
 iron:router
+fezvrasta:bootstrap-material-design
+juliancwirko:s-alert
+juliancwirko:s-alert-bouncyflip
+csats:csv-parse
+evaisse:csv

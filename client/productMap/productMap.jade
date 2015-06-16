@@ -1,0 +1,24 @@
+template(name="productMap")
+	.productMap.container
+		button.btn.btn-success.btn-raised(name="import-csv") Impordi CSV
+		//- label.btn.btn-success.upload-file-label
+		//- 	input(type="file" accept=".csv" id="upload-file")
+		//- 	p Impordi CSV
+		.panel
+			.panel-body
+				table.table
+					thead
+						tr
+							th Kood
+							th Kirjeldus
+							th Takistus
+							th Jahtumise aeg
+					tbody
+						each products
+							tr(data-map-id="{{_id}}")
+								td {{code}}
+								td {{description}}
+								td 
+									input.form-control(name="resistance" value="{{resistance}}")
+								td 
+									input.form-control(name="cooldownTime" value="{{cooldownTime}}")

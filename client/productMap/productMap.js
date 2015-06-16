@@ -1,0 +1,28 @@
+Template.productMap.helpers({
+	products: function () {
+		return ProductMapCollection.find({},{sort: {code: 1}})
+	}
+});
+
+Template.productMap.events({
+	'click button[name="import-csv"]': function(e){
+		Meteor.call('importCSV')
+	},
+	'change input[name="resistance"]': function(e){
+		ProductMap.updateField(e, "resistance")
+	},
+	'change input[name="cooldownTime"]': function(e){
+		ProductMap.updateField(e, "cooldownTime")
+	},
+})
+
+ProductMap = {
+	updateField: function(event, field) {
+		var id = $(event.currentTarget).parents('[data-map-id]').attr('data-map-id')
+		var value = $(event.currentTarget).val()
+		var data = {}
+		data[field] = value
+		ProductMapCollection.update(id, {$set: data})
+		sAlert.success("salvestatud", {timeout: 2000})
+	}
+}
