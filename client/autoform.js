@@ -4,6 +4,6 @@ AutoForm.addHooks(['insertProductForm'], {
 		sAlert.success("Uus toode sisestatud")
 	},
 	onError: function(formType, error) {
-		sAlert.error("Ebaõnnestus: " + error)
+		sAlert.error("Error: " + error)
 	},
 });

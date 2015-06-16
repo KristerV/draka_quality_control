@@ -13,7 +13,7 @@ template(name="productsList")
 							              template="bootstrap3-horizontal"
 							              label-class="col-sm-3"
 							              input-col-class="col-sm-9")
-							+afQuickField(name="productDescription"
+							+afQuickField(name="mapId"
 							              template="bootstrap3-horizontal"
 							              label-class="col-sm-3"
 							              input-col-class="col-sm-9")
@@ -32,4 +32,26 @@ template(name="productsList")
 						button.btn.btn-success(type="submit") Sisesta toode (käivita timer)
 	.productsList.container
 		button.btn.btn-success.btn-raised(data-toggle="modal" data-target="#new-product-dialog") Sisesta uus toode
-		p productsList
+		+buttonToProductMap
+		.panel
+			.panel-body
+				table.table.table-hover
+					thead
+						tr
+							th Staatus
+							th Tootekood
+							th Tootekirjeldus
+							th Partii
+							th Tootmistellimus
+							th Kogus meetrites
+							th(style="text-align:right") Aega jäänud
+					tbody
+						each products
+							tr
+								td {{status}}
+								td {{productCode}}
+								td {{productDescription}}
+								td {{consignment}}
+								td {{orderNumber}}
+								td {{quantity}}
+								td(style="text-align:right") {{timeLeft}}

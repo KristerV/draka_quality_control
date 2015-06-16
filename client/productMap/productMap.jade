@@ -1,6 +1,7 @@
 template(name="productMap")
 	.productMap.container
 		button.btn.btn-success.btn-raised(name="import-csv") Impordi CSV
+		+buttonToProductsList
 		//- label.btn.btn-success.upload-file-label
 		//- 	input(type="file" accept=".csv" id="upload-file")
 		//- 	p Impordi CSV
@@ -12,13 +13,13 @@ template(name="productMap")
 							th Kood
 							th Kirjeldus
 							th Takistus
-							th Jahtumise aeg
+							th Jahtumise aeg (<strong>tundides!</strong>)
 					tbody
 						each products
 							tr(data-map-id="{{_id}}")
 								td {{code}}
 								td {{description}}
 								td(class="{{#if $not resistance}}bg-danger{{/if}}")
-									input.form-control.red-if-none(name="resistance" value="{{resistance}}")
+									input.form-control.red-if-none(type="number" name="resistance" value="{{resistance}}")
 								td(class="{{#if $not cooldownTime}}bg-danger{{/if}}")
-									input.form-control.red-if-none(name="cooldownTime" value="{{cooldownTime}}")
+									input.form-control.red-if-none(type="number" name="cooldownTime" value="{{cooldownTime}}")

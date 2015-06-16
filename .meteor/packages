@@ -21,3 +21,5 @@ evaisse:csv
 raix:handlebar-helpers
 aldeed:autoform-select2
 natestrauser:select2
+mizzao:timesync
+oaf:moment-duration-format
