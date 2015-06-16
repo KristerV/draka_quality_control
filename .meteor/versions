@@ -1,6 +1,8 @@
 aldeed:autoform@5.3.0
+aldeed:autoform-select2@2.0.2
 aldeed:collection2@2.3.1
 aldeed:simple-schema@1.1.0
+aldeed:template-extension@3.4.3
 autoupdate@1.2.1
 base64@1.0.3
 binary-heap@1.0.3
@@ -50,6 +52,7 @@ momentjs:moment@2.8.4
 mongo@1.1.0
 mquandalle:jade@0.4.3
 mquandalle:jade-compiler@0.4.3
+natestrauser:select2@3.5.1
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 raix:handlebar-helpers@0.2.4

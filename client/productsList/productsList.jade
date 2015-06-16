@@ -1,3 +1,35 @@
 template(name="productsList")
-	.productsList
+	.modal.fade#new-product-dialog(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+						span(aria-hidden="true") &times;
+					h4.modal-title Uus toode
+				.modal-body
+					+autoForm(collection="ProductsCollection" id="insertProductForm" type="insert" class="form-horizontal")
+						fieldset
+							+afQuickField(name="productCode"
+							              template="bootstrap3-horizontal"
+							              label-class="col-sm-3"
+							              input-col-class="col-sm-9")
+							+afQuickField(name="productDescription"
+							              template="bootstrap3-horizontal"
+							              label-class="col-sm-3"
+							              input-col-class="col-sm-9")
+							+afQuickField(name="consignment"
+							              template="bootstrap3-horizontal"
+							              label-class="col-sm-3"
+							              input-col-class="col-sm-9")
+							+afQuickField(name="orderNumber"
+							              template="bootstrap3-horizontal"
+							              label-class="col-sm-3"
+							              input-col-class="col-sm-9")
+							+afQuickField(name="quantity"
+							              template="bootstrap3-horizontal"
+							              label-class="col-sm-3"
+							              input-col-class="col-sm-9")
+						button.btn.btn-success(type="submit") Sisesta toode (käivita timer)
+	.productsList.container
+		button.btn.btn-success.btn-raised(data-toggle="modal" data-target="#new-product-dialog") Sisesta uus toode
 		p productsList
