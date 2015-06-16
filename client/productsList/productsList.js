@@ -1,6 +1,13 @@
 Template.productsList.helpers({
 	products: function() {
-		return ProductsCollection.find({},{sort: {createdAt: 1}})
+		var filters = []
+		if (Session.get('filterOotel'))
+			filters.push('Ootel')
+		if (Session.get('filterKatsetamisele'))
+			filters.push('Katsetamisele')
+		if (Session.get('filterKinnitatud'))
+			filters.push('Kinnitatud')
+		return ProductsCollection.find({status: {$in: filters}},{sort: {createdAt: 1}})
 	},
 	productDescription: function() {
 		var map = ProductMapCollection.findOne(this.mapId)
