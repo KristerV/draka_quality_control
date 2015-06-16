@@ -15,6 +15,8 @@ Template.productsList.helpers({
 
 		var start = moment(this.createdAt)
 		var cooldownTime = map.cooldownTime
+		if (!cooldownTime)
+			return null
 		var now = start.add(cooldownTime, 'hours').subtract(TimeSync.serverTime())
 		var duration = moment.duration(now.valueOf())
 		var dayString;
@@ -26,5 +28,12 @@ Template.productsList.helpers({
 			dayString = "D päeva, "
 
 		return duration.format(dayString+"HH:mm:ss")
+	},
+	resistance: function() {
+		var map = ProductMapCollection.findOne(this.mapId)
+		if (!map)
+			return null
+
+		return map.resistance
 	}
 })

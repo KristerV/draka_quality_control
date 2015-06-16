@@ -44,6 +44,7 @@ template(name="productsList")
 							th Partii
 							th Tootmistellimus
 							th Kogus meetrites
+							th Takistus
 							th(style="text-align:right") Aega jäänud
 					tbody
 						each products
@@ -54,4 +55,5 @@ template(name="productsList")
 								td {{consignment}}
 								td {{orderNumber}}
 								td {{quantity}}
-								td(style="text-align:right") {{timeLeft}}
+								td(class="{{#if $not resistance}}bg-danger{{/if}}") {{resistance}}
+								td(style="text-align:right" class="{{#if $not timeLeft}}bg-danger{{/if}}") {{timeLeft}}
