@@ -1,6 +1,7 @@
 Dropdown katsetaja / kaardi lugeja
-failist lugemine ja SAPist tuleb sisse
-nõuete seosed
 Andmebaas detailselt logitud.
+Kustutamise funktsionaalsus
+autocomplete tootekoodi pealt!
+
+failist lugemine ja SAPist tuleb sisse
 Faili importimisel võib (ainult) kirjelduse üle kirjutada.
-Takistusest on suurem 0.4 siis läheb punaseks.
