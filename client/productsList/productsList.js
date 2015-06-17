@@ -9,12 +9,6 @@ Template.productsList.helpers({
 			filters.push('Kinnitatud')
 		return ProductsCollection.find({status: {$in: filters}},{sort: {createdAt: 1}})
 	},
-	productDescription: function() {
-		var map = ProductMapCollection.findOne(this.mapId)
-		if (!map)
-			return false
-		return map.description
-	},
 	timeLeft: function() {
 
 		// Only calculate time left for products waiting for timer
