@@ -16,7 +16,6 @@ Template.productsList.helpers({
 		return map.description
 	},
 	timeLeft: function() {
-		console.log(this.passed)
 
 		// Only calculate time left for products waiting for timer
 		if (this.status != 'Ootel')

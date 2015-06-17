@@ -32,10 +32,8 @@ AutoForm.addHooks(['updateProductForm'], {
 				this.currentDoc.resistance >= doc.$set.KORO &&
 				this.currentDoc.resistance >= doc.$set.HESI)
 			{
-				console.log(true)
 				doc.$set.passed = true
 			} else {
-				console.log(false)
 				doc.$set.passed = false
 			}
 			return doc
