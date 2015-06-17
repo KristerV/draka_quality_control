@@ -27,9 +27,7 @@ Template.productsList.helpers({
 			return null
 
 		var timer = moment(this.createdAt) // start
-		var cooldownTime = map.cooldownTime // cooldown, in hours
-		if (!cooldownTime)
-			return null
+		var cooldownTime = this.cooldownTime // cooldown, in hours
 		timer.add(cooldownTime, 'hours') // timer finish datetime
 
 		// Manual check if product is ready
