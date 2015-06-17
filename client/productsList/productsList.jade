@@ -51,7 +51,7 @@ template(name="productsList")
 							th(style="text-align:right") Aega jäänud
 					tbody
 						each products
-							tr(class="{{#if $eq status 'Katsetamisele'}}bg-green clickable{{/if}}" data-product-id="{{_id}}")
+							tr(class="{{#if $eq status 'Katsetamisele'}}bg-yellow clickable{{/if}} {{#if $eq status 'Kinnitatud'}}{{#if $eq passed true}}bg-green{{else}}bg-red{{/if}} clickable{{/if}}" data-product-id="{{_id}}")
 								td {{productCode}}
 								td {{productDescription}}
 								td {{consignment}}
