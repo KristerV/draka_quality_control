@@ -16,23 +16,30 @@ Template.productsList.helpers({
 		return map.description
 	},
 	timeLeft: function() {
+
+		// Only calculate time left for products waiting for timer
 		if (this.status != 'Ootel')
 			return this.status
+
+		// Get product map
 		var map = ProductMapCollection.findOne(this.mapId)
 		if (!map)
 			return null
 
-		var start = moment(this.createdAt)
-		
-		var cooldownTime = map.cooldownTime
+		var timer = moment(this.createdAt) // start
+		var cooldownTime = map.cooldownTime // cooldown, in hours
 		if (!cooldownTime)
 			return null
+		timer.add(cooldownTime, 'hours') // timer finish datetime
 
-		// Manual control if product is ready
-		if (start.add(cooldownTime, 'hours') < moment(TimeSync.serverTime()))
+		// Manual check if product is ready
+		if (timer < moment(TimeSync.serverTime()))
 			return "valmis"
-		var difference = start.add(cooldownTime, 'hours').subtract(TimeSync.serverTime())
-		var duration = moment.duration(difference.valueOf())
+
+		timer.subtract(TimeSync.serverTime()) // time left
+		var duration = moment.duration(timer.valueOf())
+
+		// Let's be grammatically correct
 		var dayString;
 		if (duration.days() == 0)
 			dayString = ""
