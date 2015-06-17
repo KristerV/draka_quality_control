@@ -7,7 +7,7 @@ Template.productsList.helpers({
 			filters.push('Katsetamisele')
 		if (Session.get('filterKinnitatud'))
 			filters.push('Kinnitatud')
-		return ProductsCollection.find({status: {$in: filters}},{sort: {createdAt: 1}})
+		return ProductsCollection.find({status: {$in: filters}, deleted: {$ne: true}},{sort: {createdAt: 1}})
 	},
 	timeLeft: function() {
 
