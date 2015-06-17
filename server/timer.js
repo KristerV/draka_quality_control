@@ -1,16 +1,17 @@
 
 var delay = 10 * 1000
 
-Meteor.setInterval(function(){
+// No need for checkProductsTimers. Client checks timer from productsList.js:timeLeft
+/*Meteor.setInterval(function(){
 	checkProductsTimers()
-},delay)
+},delay)*/
 
 
 checkProductsTimers = function() {
 	var products = ProductsCollection.find({status: 'Ootel'}).fetch()
 	_.each(products, function(obj, i){
 		var start = moment(obj.createdAt).valueOf() // Date to millisec
-		var cooldown = ProductMapCollection.findOne(obj.mapId).cooldownTime * 60 * 60 * 1000// hours to millisec
+		var cooldown = obj.cooldownTime * 60 * 60 * 1000// hours to millisec
 		var now = moment().valueOf() // millisec
 
 		if (now > start + cooldown)

@@ -31,8 +31,10 @@ Template.productsList.helpers({
 		timer.add(cooldownTime, 'hours') // timer finish datetime
 
 		// Manual check if product is ready
-		if (timer < moment(TimeSync.serverTime()))
+		if (timer < moment(TimeSync.serverTime())) {
+			ProductsCollection.update(this._id, {$set: {status: "Katsetamisele"}})
 			return "valmis"
+		}
 
 		timer.subtract(TimeSync.serverTime()) // time left
 		var duration = moment.duration(timer.valueOf())
