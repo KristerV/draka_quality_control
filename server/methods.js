@@ -20,5 +20,8 @@ Meteor.methods({
 			console.log(first)
 			console.log(second)
 		});
+	},
+	insertTestData: function() {
+		ProductMapCollection.batchInsert(testData)
 	}
 })

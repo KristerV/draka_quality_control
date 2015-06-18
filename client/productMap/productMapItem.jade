@@ -1,0 +1,8 @@
+template(name="productMapItem")
+	tr(data-map-id="{{_id}}")
+		td {{code}}
+		td {{description}}
+		td(class="{{#if $not resistance}}bg-yellow{{/if}}")
+			input.form-control.red-if-none(type="number" name="resistance" value="{{resistance}}")
+		td(class="{{#if $not cooldownTime}}bg-yellow{{/if}}")
+			input.form-control.red-if-none(type="number" name="cooldownTime" value="{{cooldownTime}}")

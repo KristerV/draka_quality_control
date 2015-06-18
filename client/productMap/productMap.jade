@@ -7,19 +7,5 @@ template(name="productMap")
 		//- 	p Impordi CSV
 		.panel
 			.panel-body
-				table.table
-					thead
-						tr
-							th Kood
-							th Kirjeldus
-							th Takistus
-							th Jahtumise aeg (<strong>tundides!</strong>)
-					tbody
-						each products
-							tr(data-map-id="{{_id}}")
-								td {{code}}
-								td {{description}}
-								td(class="{{#if $not resistance}}bg-yellow{{/if}}")
-									input.form-control.red-if-none(type="number" name="resistance" value="{{resistance}}")
-								td(class="{{#if $not cooldownTime}}bg-yellow{{/if}}")
-									input.form-control.red-if-none(type="number" name="cooldownTime" value="{{cooldownTime}}")
+				+pages
+				+pagesNav
