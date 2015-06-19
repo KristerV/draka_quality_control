@@ -6,7 +6,7 @@ Template.productMap.helpers({
 
 Template.productMap.events({
 	'click button[name="import-csv"]': function(e){
-		Meteor.call('importCSV')
+		Meteor.call('importData')
 	},
 	'change input[name="resistance"]': function(e){
 		ProductMap.updateField(e, "resistance")
