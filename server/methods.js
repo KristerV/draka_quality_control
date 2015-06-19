@@ -1,5 +1,5 @@
 Meteor.methods({
-	importCSV: function() {
+	importData: function() {
 		var fs = Meteor.npmRequire('fs')
 		var fiber = Meteor.npmRequire('fibers')
 		fs.readFile(process.env.PWD + '/private/andmed.txt', 'utf8', function (err,data) {

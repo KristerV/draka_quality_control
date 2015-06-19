@@ -1,10 +1,10 @@
 
-var delay = 10 * 1000
+var delay = 24 * 60 * 60 * 1000
 
 // No need for checkProductsTimers. Client checks timer from productsList.js:timeLeft
-/*Meteor.setInterval(function(){
-	checkProductsTimers()
-},delay)*/
+Meteor.setInterval(function(){
+	Meteor.call('importData')
+},delay)
 
 
 checkProductsTimers = function() {
