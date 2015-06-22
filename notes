@@ -1,10 +1,3 @@
-sort kood -1
-Tüüpidele takistusi juurde / 0 ei kuba välja
-Väljad optional / kirjeldused uued
-Export
-koma => punk
-vale väärtuse Error
-üldvaates -takistus
-
-Takistuse erinevus tulemuses graafikuna
-viimased X, kuud, aasta
+Export CSV või XML
+Tulemuste graafik. Viimased 8 korda, kuu, aasta, forever.
+Takistuse standardeid on 5 ja väärtus 0 peidab välja üldse ära, labelid uued, optional. Üldvaatest üldse ära.
