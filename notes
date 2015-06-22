@@ -1,5 +1,3 @@
-BUG import kirjutab üle
-BUG admin ei saa tühja rida klikkida
 BUG regada saab mitu kasutajad
 BUG kui ootel on peidetud siis "valmis" ei rega staatuses ära.
 
