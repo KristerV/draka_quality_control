@@ -1,8 +1,5 @@
-Template.productMap.helpers({
-	products: function () {
-		return ProductMapCollection.find({},{sort: {code: 1}})
-	}
-});
+
+// NB! Table is created in router.js with Meteor.Pagination()
 
 Template.productMap.events({
 	'click button[name="import-csv"]': function(e){
