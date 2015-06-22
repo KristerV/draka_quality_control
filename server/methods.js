@@ -14,7 +14,7 @@ Meteor.methods({
 				}
 
 				fiber(function(){
-					ProductMapCollection.upsert({code: line[0]}, {code: line[0], description: line[1]})
+					ProductMapCollection.upsert({code: line[0]}, {$set: {code: line[0], description: line[1]}})
 				}).run()
 					
 			})

@@ -1,22 +1,15 @@
-Dropdown katsetaja / kaardi lugeja
-
-failist lugemine ja SAPist tuleb sisse
-Faili importimisel võib (ainult) kirjelduse üle kirjutada.
-
-
-
-import kirjutab üle
-Väljad optional / kirjeldused uued
-Tüüpidele takistusi juurde / 0 ei kuba välja
-sort kood -1
-ADMIN ei saa tühja rida klikkida
-üldvaates -takistus
+BUG import kirjutab üle
+BUG admin ei saa tühja rida klikkida
 BUG regada saab mitu kasutajad
 BUG kui ootel on peidetud siis "valmis" ei rega staatuses ära.
 
+sort kood -1
+Tüüpidele takistusi juurde / 0 ei kuba välja
+Väljad optional / kirjeldused uued
 Export
 koma => punk
 vale väärtuse Error
+üldvaates -takistus
 
 Takistuse erinevus tulemuses graafikuna
 viimased X, kuud, aasta
