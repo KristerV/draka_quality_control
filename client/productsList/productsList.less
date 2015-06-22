@@ -1,4 +1,28 @@
+@import "../elements";
+
 .productsList {
+	tr {
+		display: none;
+	}
+	.show-Ootel .status-Ootel {
+		display: table-row !important;
+	}
+	.show-Katsetamisele .status-Katsetamisele {
+		.clickable;
+		.bg-yellow;
+		display: table-row !important;
+	}
+	.show-Kinnitatud .status-Kinnitatud {
+		.clickable;
+		display: table-row !important;
+		&.result-passed {
+			.bg-green;
+		}
+		&.result-failed {
+			.bg-red;
+		}
+	}
+
 	.btn-toggle {
 		background-color: transparent !important;
 		&:hover {

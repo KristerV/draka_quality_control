@@ -1,13 +1,9 @@
 Template.productsList.helpers({
 	products: function() {
-		var filters = []
-		if (Session.get('filterOotel'))
-			filters.push('Ootel')
-		if (Session.get('filterKatsetamisele'))
-			filters.push('Katsetamisele')
+		var filter = ['Ootel', 'Katsetamisele']
 		if (Session.get('filterKinnitatud'))
-			filters.push('Kinnitatud')
-		return ProductsCollection.find({status: {$in: filters}, deleted: {$ne: true}},{sort: {createdAt: 1}})
+			filter.push('Kinnitatud')
+		return ProductsCollection.find({status: {$in: filter}, deleted: {$ne: true}},{sort: {createdAt: 1}})
 	},
 	timeLeft: function() {
 
@@ -50,7 +46,7 @@ Template.productsList.helpers({
 			return null
 
 		return map.resistance
-	}
+	},
 })
 Template.productsList.events({
 	'click button[name="Ootel"]': function(e) {

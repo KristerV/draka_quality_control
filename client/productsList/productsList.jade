@@ -35,7 +35,7 @@ template(name="productsList")
 			button.btn.btn-toggle(name="Kinnitatud" type="button" class="{{#if $.Session.equals 'filterKinnitatud' true}}active{{/if}}") Kinnitatud
 		.panel
 			.panel-body
-				table.table.table-hover
+				table.table.table-hover(class="{{#if $.Session.get 'filterOotel'}}show-Ootel{{/if}} {{#if $.Session.get 'filterKatsetamisele'}}show-Katsetamisele{{/if}} {{#if $.Session.get 'filterKinnitatud'}}show-Kinnitatud{{/if}}")
 					thead
 						tr
 							th Tootekood
@@ -47,7 +47,7 @@ template(name="productsList")
 							th(style="text-align:right") Aega jäänud
 					tbody
 						each products
-							tr(class="{{#if $eq status 'Katsetamisele'}}bg-yellow clickable{{/if}} {{#if $eq status 'Kinnitatud'}}{{#if $eq passed true}}bg-green{{else}}bg-red{{/if}} clickable{{/if}} {{#if currentUser}}clickable{{/if}}" data-product-id="{{_id}}")
+							tr(class="{{#unless $eq status 'Ootel'}}clickable{{/unless}} status-{{status}} {{#if $eq passed true}}result-passed{{else}}result-failed{{/if}} {{#if currentUser}}clickable{{/if}}" data-product-id="{{_id}}")
 								td {{productCode}}
 								td {{productDescription}}
 								td {{consignment}}
