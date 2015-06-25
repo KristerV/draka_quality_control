@@ -34,9 +34,6 @@ ProductMap = {
 		if (value.indexOf(',') >= 0) {
 			sAlert.error('Palun kasuta koma asemel punkti, nt. 0.34')
 			return false
-		} else if (!value) {
-			sAlert.error('Kindel, et kirjutasid numbri? Muide, koma asemel kasutame punkti.')
-			return false
 		}
 
 		// Save

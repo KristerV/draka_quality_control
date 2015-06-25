@@ -13,92 +13,92 @@ template(name="productDetails")
 								if currentUser
 									+afQuickField(name="status"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              options="allowed"
 									              )
 									+afQuickField(name="productCode"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              )
 									+afQuickField(name="productDescription"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              )
 									+afQuickField(name="consignment"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              )
 									+afQuickField(name="orderNumber"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              )
 									+afQuickField(name="quantity"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              )
 									+afQuickField(name="createdAt"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              )
 									+afQuickField(name="cooldownTime"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              )
 								else
 									+afQuickField(name="status"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 									+afQuickField(name="productCode"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 									+afQuickField(name="productDescription"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 									+afQuickField(name="consignment"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 									+afQuickField(name="orderNumber"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 									+afQuickField(name="quantity"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 									+afQuickField(name="createdAt"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 									+afQuickField(name="cooldownTime"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9"
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7"
 									              disabled=true
 									              )
 					.col-sm-6
@@ -108,8 +108,8 @@ template(name="productDetails")
 								div(class="{{#if $not drumLength}}input-bg-yellow{{/if}}")
 									+afQuickField(name="drumLength"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9")
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7")
 								br
 								table.table.borderless
 									thead
@@ -138,11 +138,11 @@ template(name="productDetails")
 								div(class="{{#if $not testerPerson}}input-bg-yellow{{/if}}")
 									+afQuickField(name="testerPerson"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9")
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7")
 								div(class="{{#if $not notes}}input-bg-yellow{{/if}}")
 									+afQuickField(name="notes"
 									              template="bootstrap3-horizontal"
-									              label-class="col-sm-3"
-									              input-col-class="col-sm-9")
+									              label-class="col-sm-5"
+									              input-col-class="col-sm-7")
 								button.btn.btn-success(type="submit") Kinnita
