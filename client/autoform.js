@@ -2,6 +2,7 @@ AutoForm.addHooks(['insertProductForm'], {
 	onSuccess: function(formType, result) {
 		$('#new-product-dialog').modal('hide')
 		sAlert.success("Uus toode sisestatud")
+		$('select')[0].selectize.clear()
 	},
 	onError: function(formType, error) {
 		sAlert.error("Error: " + error)

@@ -19,7 +19,6 @@ juliancwirko:s-alert-bouncyflip
 csats:csv-parse
 evaisse:csv
 raix:handlebar-helpers
-aldeed:autoform-select2
 natestrauser:select2
 mizzao:timesync
 oaf:moment-duration-format
@@ -33,3 +32,5 @@ meteorhacks:npm
 
 npm-container
 lfergon:exportcsv
+chhib:selectize-bootstrap-3
+comerc:autoform-selectize
