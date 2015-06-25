@@ -1,4 +1,17 @@
 AutoForm.addHooks(['insertProductForm'], {
+	before: {
+		insert: function(doc) {
+			var map = ProductMapCollection.findOne(doc.mapId)
+			doc['measurements'] = []
+			_.each(Settings.measurements, function(value, key) {
+				if (map[key]) {
+					doc.measurements.push({label: value, name: key, resistance: map[key]})
+				}
+			})
+			console.log(doc)
+			return doc
+		}
+	},
 	onSuccess: function(formType, result) {
 		$('#new-product-dialog').modal('hide')
 		sAlert.success("Uus toode sisestatud")

@@ -7,7 +7,7 @@ template(name="productsList")
 						span(aria-hidden="true") &times;
 					h4.modal-title Uus toode
 				.modal-body
-					+autoForm(collection="ProductsCollection" id="insertProductForm" type="insert" class="form-horizontal")
+					+autoForm(collection="ProductsCollection" id="insertProductForm" type="insert" class="form-horizontal" filter=false)
 						fieldset
 							+afQuickField(name="mapId"
 							              template="bootstrap3-horizontal"
@@ -44,7 +44,6 @@ template(name="productsList")
 							th Partii
 							th Tootmistellimus
 							th Kogus meetrites
-							th Takistus
 							th(style="text-align:right") Aega jäänud
 					tbody
 						each products
@@ -54,5 +53,4 @@ template(name="productsList")
 								td {{consignment}}
 								td {{orderNumber}}
 								td {{quantity}}
-								td(class="{{#if $not resistance}}bg-danger{{/if}}") {{resistance}}
 								td(style="text-align:right" class="{{#if $not timeLeft}}bg-danger{{/if}}") {{timeLeft}}
