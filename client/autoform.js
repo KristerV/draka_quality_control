@@ -28,28 +28,25 @@ AutoForm.addHooks(['updateProductForm'], {
 
 			// If all testing flieds are filled, confirm product
 			if (doc.$set.drumLength &&
-				doc.$set.PRU &&
-				doc.$set.MU &&
-				doc.$set.HA &&
-				doc.$set.KORO &&
-				doc.$set.HESI &&
 				doc.$set.testerPerson) 
 			{
 				doc.$set.status = "Kinnitatud"
 			}
 
 			// If resistances passed the tests
-			if (
-				this.currentDoc.resistance >= doc.$set.PRU &&
-				this.currentDoc.resistance >= doc.$set.MU &&
-				this.currentDoc.resistance >= doc.$set.HA &&
-				this.currentDoc.resistance >= doc.$set.KORO &&
-				this.currentDoc.resistance >= doc.$set.HESI)
-			{
-				doc.$set.passed = true
-			} else {
-				doc.$set.passed = false
+			var measurements = doc.$set.measurements
+			var passed = true
+			for (var i = measurements.length - 1; i >= 0; i--) {
+				if (measurements[i].result <= measurements[i].resistance) {
+					console.log("pass 1")
+					passed = passed && true
+				}
+				else {
+					console.log("pass 2")
+					passed = false
+				}
 			}
+			doc.$set.passed = passed
 			return doc
 
 		}
