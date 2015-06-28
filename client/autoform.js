@@ -8,7 +8,6 @@ AutoForm.addHooks(['insertProductForm'], {
 					doc.measurements.push({label: value, name: key, resistance: map[key]})
 				}
 			})
-			console.log(doc)
 			return doc
 		}
 	},
@@ -38,11 +37,9 @@ AutoForm.addHooks(['updateProductForm'], {
 			var passed = true
 			for (var i = measurements.length - 1; i >= 0; i--) {
 				if (measurements[i].result <= measurements[i].resistance) {
-					console.log("pass 1")
 					passed = passed && true
 				}
 				else {
-					console.log("pass 2")
 					passed = false
 				}
 			}
