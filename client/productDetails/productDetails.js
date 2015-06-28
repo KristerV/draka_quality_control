@@ -2,6 +2,9 @@ Template.productDetails.helpers({
 	valueLabel: function() {
 		return AutoForm.getFieldValue(this.current.label)
 	},
+	valueResult: function() {
+		return AutoForm.getFieldValue(this.current.result)
+	},
 	valueResistance: function() {
 		return AutoForm.getFieldValue(this.current.resistance)
 	},
