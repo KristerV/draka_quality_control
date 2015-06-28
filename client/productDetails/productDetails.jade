@@ -120,13 +120,16 @@ template(name="productDetails")
 														strong max
 													td tulemus
 											tbody
-												each measurements
+												+afEachArrayItem(name="measurements")
 													tr
-														td {{label}}
-														td 
-															strong {{resistance}}
-														td(class="hide-label {{#if $not HESI}}input-bg-yellow{{/if}} {{#if $gt HESI resistance}}input-bg-red{{/if}}") 
-															+afQuickField(name="measurements.$.result")
+														td {{valueLabel}}
+															//- disabled or non-existent field will get overwritten with null
+															+afQuickField(name=this.current.label type="hidden")
+														td {{valueResistance}}
+															//- disabled or non-existent field will get overwritten with null
+															+afQuickField(name=this.current.resistance type="hidden")
+														td.hide-label(class="{{#if $not this.current.result}}input-bg-yellow{{/if}} {{#if $gt this.current.result resistance}}input-bg-red{{/if}}") 
+															+afQuickField(name=this.current.result)
 								div(class="{{#if $not testerPerson}}input-bg-yellow{{/if}}")
 									+afQuickField(name="testerPerson"
 									              template="bootstrap3-horizontal"

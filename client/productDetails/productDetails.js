@@ -1,10 +1,10 @@
 Template.productDetails.helpers({
-	measurements: function(){
-		return this.measurements
+	valueLabel: function() {
+		return AutoForm.getFieldValue(this.current.label)
 	},
-	measurementName: function() {
-		return "measurement.$."+this.name
-	}
+	valueResistance: function() {
+		return AutoForm.getFieldValue(this.current.resistance)
+	},
 })
 
 Template.productDetails.events({
