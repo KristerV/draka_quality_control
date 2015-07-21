@@ -4,8 +4,6 @@ Takistuse standardeid on 5 ja väärtus 0 peidab välja üldse ära, labelid uue
 
 Expordis takistused
 
-listis on pealkirjad puudu
-
 
 
 
@@ -21,3 +19,4 @@ listis on pealkirjad puudu
 
 Lisaks
 * Pealehel olid tabeli pealkirjad puudu.
+*
