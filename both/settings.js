@@ -1,7 +1,8 @@
 Settings = {
 	measurements: {
-		// The key is used to insert to DB, so don't change already existing names there.
-		// The value is what is displayed and can be changed at any time.
+		// Jutumärkides olevaid väärtusi võid alati muuta, aga koolonist eespool
+		// väärtusi ära muuda. Lisada võid küll. Koolonist eespool olevad
+		// väärtused  kannatavad ainult tähti ja numbreid.
 		measurement1: "measurement1",
 		measurement2: "measurement2",
 		measurement3: "measurement3",
@@ -9,6 +10,7 @@ Settings = {
 	},
 	getMeasurementsSchema: function() {
 		return _.map(Settings.measurements, function(value, key){
+			value = new Spacebars.SafeString(value)
 			return {label: value, value: key}
 		})
 	}

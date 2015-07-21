@@ -8,4 +8,6 @@ listis on pealkirjad puudu
 
 
 
-Toote sisestamisel ei olegi vahet mis järjekorras andmed sisestada. Teie screenshotis on näha, et esimest välja polegi üldse täidetud. Küll aga oli viga, et poolikute andmete "sisestamisel" läks "sisesta" nupp lukku. See on nüüd parandatud.
+Tegelik viga oli selles, et kui püüda vormi poolikult sisestada, siis "sisesta" nupp kiilus kinni ja isegi pärast parandusi ei saanud uut toodet sisestada. Parandatud.
+
+Mul endal "-" kriipsu probleemi ei esine. Panin siiski väikese paranduse, mis võib aidata. Palun proovi nii IE kui ka Chromega viga korrata.
