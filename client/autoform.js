@@ -26,8 +26,7 @@ AutoForm.addHooks(['updateProductForm'], {
 		update: function(doc) {
 
 			// If all testing flieds are filled, confirm product
-			if (doc.$set.drumLength &&
-				doc.$set.testerPerson) 
+			if (doc.$set.testerPerson)
 			{
 				doc.$set.status = "Kinnitatud"
 			}
@@ -48,4 +47,10 @@ AutoForm.addHooks(['updateProductForm'], {
 
 		}
 	},
+	after: {
+		update: function(err, result) {
+			if (result && this.updateDoc.$set.passed)
+				Router.go("/?msgSuccess=Toode vastab nõudmistele.")
+		}
+	}
 })
