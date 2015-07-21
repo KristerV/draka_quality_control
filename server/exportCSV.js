@@ -4,6 +4,7 @@ Meteor.methods({
 		var products = ProductsCollection.find().fetch()
 		var mapped = []
 
+		// Add measurements to the table
 		_.each(products, function(product, i){
 			_.each(product.measurements, function(measurement, i) {
 				if (measurement.result)
