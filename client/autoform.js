@@ -1,6 +1,14 @@
 AutoForm.addHooks(['insertProductForm'], {
 	before: {
 		insert: function(doc) {
+
+			// There are 4 fields, all are required
+			if (_.size(doc) < 4) {
+				sAlert.error("Palun täida kõik väljad")
+				return false
+			}
+
+			// Attach measurements from product map
 			var map = ProductMapCollection.findOne(doc.mapId)
 			doc['measurements'] = []
 			_.each(Settings.measurements, function(value, key) {

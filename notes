@@ -5,3 +5,7 @@ Takistuse standardeid on 5 ja väärtus 0 peidab välja üldse ära, labelid uue
 Expordis takistused
 
 listis on pealkirjad puudu
+
+
+
+Toote sisestamisel ei olegi vahet mis järjekorras andmed sisestada. Teie screenshotis on näha, et esimest välja polegi üldse täidetud. Küll aga oli viga, et poolikute andmete "sisestamisel" läks "sisesta" nupp lukku. See on nüüd parandatud.
