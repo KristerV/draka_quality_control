@@ -39,19 +39,19 @@ template(name="productsList")
 			.panel-body
 				table.table.table-hover(class="{{#if $.Session.get 'filterOotel'}}show-Ootel{{/if}} {{#if $.Session.get 'filterKatsetamisele'}}show-Katsetamisele{{/if}} {{#if $.Session.get 'filterKinnitatud'}}show-Kinnitatud{{/if}}")
 					thead
-						tr
+						tr(style="display: table-row")
 							th Toote parameeter
 							th Tootekirjeldus
-							th Partii
-							th Tootmistellimus
-							th Trumli pikkus
+							th.small-width Partii
+							th.small-width Tootmistellimus
+							th.small-width Trumli pikkus
 							th(style="text-align:right") Aega jäänud
 					tbody
 						each products
 							tr(class="{{#unless $eq status 'Ootel'}}clickable{{/unless}} status-{{status}} {{#if $eq passed true}}result-passed{{else}}result-failed{{/if}} {{#if currentUser}}clickable{{/if}}" data-product-id="{{_id}}")
 								td {{productCode}}
 								td {{productDescription}}
-								td {{consignment}}
-								td {{orderNumber}}
-								td {{quantity}}
+								td.small-width {{consignment}}
+								td.small-width {{orderNumber}}
+								td.small-width {{quantity}}
 								td(style="text-align:right" class="{{#if $not timeLeft}}bg-danger{{/if}}") {{timeLeft}}
