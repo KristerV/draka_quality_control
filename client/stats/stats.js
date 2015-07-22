@@ -23,36 +23,33 @@ var getStatistics = function(options) {
         settings['limit'] = options.limit
     }
 
-    settings['sort'] = {measurementsTakenDatetime: -1}
+    settings['sort'] = {measurementsTakenDatetime: 1}
 
     var products = ProductsCollection.find(find, settings).fetch()
-
-    if (options.showDates)
-        var data = {x: []}
-    else
-        var data = {}
+    var data = []
     var groups = []
 
     _.each(products, function(product){
         if (!product.measurementsTakenDatetime)
             return false
-        if (options.showDates)
-            data.x.push(product.measurementsTakenDatetime)
-
-        _.each(product.measurements, function(measurement){
-            if (!measurement.result)
-                return false
-            if (!data[measurement.label]) {
-                data[measurement.label] = []
-                groups.push(measurement.label)
-            }
-            var stat = measurement.result - measurement.resistance
-            data[measurement.label].push(stat)
+        var dataPoint = {}
+        _.each(product.measurements, function(m, key){
+            dataPoint[m.label] = m.result - m.resistance
         })
+        dataPoint['x'] = product.measurementsTakenDatetime
+        data.push(dataPoint)
+    })
+
+    var keys = []
+    _.each(Settings.measurements, function(value, key){
+        keys.push(value)
     })
 
     if (options.showDates) {
         var chart = {
+            tooltip: {
+              show: false
+            },
             subchart: {
                 show: options.minimap
             },
@@ -60,8 +57,11 @@ var getStatistics = function(options) {
                 height: $(window).height() / 3.2,
             },
             data: {
-                x: 'x',
                 json: data,
+                keys: {
+                    x: 'x',
+                    value: keys,
+                },
                 type: 'bar',
                 // groups: [groups], // enable this to stack bars
             },
@@ -85,6 +85,9 @@ var getStatistics = function(options) {
         }
     } else {
         var chart = {
+            tooltip: {
+              show: false
+            },
             subchart: {
                 show: options.minimap
             },
@@ -93,6 +96,9 @@ var getStatistics = function(options) {
             },
             data: {
                 json: data,
+                keys: {
+                    value: keys
+                },
                 type: 'bar',
                 // groups: [groups], // enable this to stack bars
             },
