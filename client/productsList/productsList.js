@@ -76,5 +76,8 @@ Template.productsList.events({
 				saveAs(blob, nameFile);
 			}
 		});
+	},
+	'click button.stats': function(e) {
+		Router.go("/stats")
 	}
 })
