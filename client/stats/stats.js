@@ -3,25 +3,29 @@ Template.stats.helpers({
         return getStatistics({limit: 8, showDates: false})
     },
     statsLastMonth: function() {
-        return getStatistics({fromDate: moment().subtract(1, 'month').toDate()})
+        var aMonthAgo = moment().subtract(1, 'month').toDate()
+        return getStatistics({fromDate: aMonthAgo})
     },
     statsLastYear: function() {
-        return getStatistics({fromDate: moment().subtract(1, 'year').toDate()})
+        var aYearAgo = moment().subtract(1, 'year').toDate()
+        return getStatistics({fromDate: aYearAgo})
     },
 });
 
 var getStatistics = function(options) {
     options.showDates = options.showDates !== false ? true : false
     var find = {}
-    var limit = {}
+    var settings = {}
     if (options.fromDate) {
         find['measurementsTakenDatetime'] = {$gte: options.fromDate}
     }
     if (options.limit) {
-        limit['limit'] = options.limit
+        settings['limit'] = options.limit
     }
 
-    var products = ProductsCollection.find(find, limit).fetch()
+    settings['sort'] = {measurementsTakenDatetime: -1}
+
+    var products = ProductsCollection.find(find, settings).fetch()
 
     if (options.showDates)
         var data = {x: []}
@@ -49,6 +53,12 @@ var getStatistics = function(options) {
 
     if (options.showDates) {
         var chart = {
+            subchart: {
+                show: options.minimap
+            },
+            size: {
+                height: $(document).height() / 3.2,
+            },
             data: {
                 x: 'x',
                 json: data,
@@ -66,6 +76,12 @@ var getStatistics = function(options) {
         }
     } else {
         var chart = {
+            subchart: {
+                show: options.minimap
+            },
+            size: {
+                height: $(document).height() / 3.2,
+            },
             data: {
                 json: data,
                 type: 'bar',
