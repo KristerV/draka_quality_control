@@ -1,14 +1,14 @@
 Template.stats.helpers({
     statsLast8: function() {
-        return getStatistics({limit: 8, showDates: false})
+        return getStatistics({limit: 8, showDates: false, label: "8 päeva"})
     },
     statsLastMonth: function() {
         var aMonthAgo = moment().subtract(1, 'month').toDate()
-        return getStatistics({fromDate: aMonthAgo})
+        return getStatistics({fromDate: aMonthAgo, label: "Kuu"})
     },
     statsLastYear: function() {
         var aYearAgo = moment().subtract(1, 'year').toDate()
-        return getStatistics({fromDate: aYearAgo})
+        return getStatistics({fromDate: aYearAgo, label: "Aasta"})
     },
 });
 
@@ -65,13 +65,22 @@ var getStatistics = function(options) {
                 type: 'bar',
                 // groups: [groups], // enable this to stack bars
             },
+            legend: {
+                position: 'right'
+            },
             axis: {
                 x: {
                     type: 'timeseries',
                     tick: {
                         format: '%d.%m.%Y'
                     }
-                }
+                },
+                y: {
+                    label: {
+                        text: options.label,
+                        position: 'outer-middle'
+                    }
+                },
             },
         }
     } else {
@@ -86,6 +95,17 @@ var getStatistics = function(options) {
                 json: data,
                 type: 'bar',
                 // groups: [groups], // enable this to stack bars
+            },
+            legend: {
+                position: 'right'
+            },
+            axis: {
+                y: {
+                    label: {
+                        text: options.label,
+                        position: 'outer-middle'
+                    }
+                },
             },
         }
     }
