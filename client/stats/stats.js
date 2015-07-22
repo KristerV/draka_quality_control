@@ -42,7 +42,7 @@ var getStatistics = function(options) {
             x: 'x',
             json: data,
             type: 'bar',
-            groups: [groups],
+            // groups: [groups],
         },
         axis: {
             x: {
@@ -51,7 +51,7 @@ var getStatistics = function(options) {
                     format: '%d.%m.%Y'
                 }
             }
-        }
+        },
     }
 
     return chart
