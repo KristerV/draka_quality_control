@@ -57,7 +57,7 @@ var getStatistics = function(options) {
                 show: options.minimap
             },
             size: {
-                height: $(document).height() / 3.2,
+                height: $(window).height() / 3.2,
             },
             data: {
                 x: 'x',
@@ -89,7 +89,7 @@ var getStatistics = function(options) {
                 show: options.minimap
             },
             size: {
-                height: $(document).height() / 3.2,
+                height: $(window).height() / 3.2,
             },
             data: {
                 json: data,
