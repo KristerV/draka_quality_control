@@ -16,6 +16,7 @@ AutoForm.addHooks(['insertProductForm'], {
 					doc.measurements.push({label: value, name: key, resistance: map[key]})
 				}
 			})
+
 			return doc
 		}
 	},
@@ -51,6 +52,7 @@ AutoForm.addHooks(['updateProductForm'], {
 				}
 			}
 			doc.$set.passed = passed
+			doc.$set.measurementsTakenDatetime = TimeSync.serverTime()
 			return doc
 
 		}
