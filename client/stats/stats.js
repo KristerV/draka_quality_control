@@ -1,6 +1,6 @@
 Template.stats.helpers({
     statsLast8: function() {
-        return getStatistics({limit: 8})
+        return getStatistics({limit: 8, showDates: false})
     },
     statsLastMonth: function() {
         return getStatistics({fromDate: moment().subtract(1, 'month').toDate()})
@@ -11,19 +11,29 @@ Template.stats.helpers({
 });
 
 var getStatistics = function(options) {
+    options.showDates = options.showDates !== false ? true : false
+    var find = {}
+    var limit = {}
+    if (options.fromDate) {
+        find['measurementsTakenDatetime'] = {$gte: options.fromDate}
+    }
+    if (options.limit) {
+        limit['limit'] = options.limit
+    }
 
-    var products = ProductsCollection.find(
-        {measurementsTakenDatetime: {$gte: options.fromDate}},
-        {limit: options.limit}
-    ).fetch()
+    var products = ProductsCollection.find(find, limit).fetch()
 
-    var data = {x: []}
+    if (options.showDates)
+        var data = {x: []}
+    else
+        var data = {}
     var groups = []
 
     _.each(products, function(product){
         if (!product.measurementsTakenDatetime)
             return false
-        data.x.push(product.measurementsTakenDatetime)
+        if (options.showDates)
+            data.x.push(product.measurementsTakenDatetime)
 
         _.each(product.measurements, function(measurement){
             if (!measurement.result)
@@ -37,21 +47,31 @@ var getStatistics = function(options) {
         })
     })
 
-    var chart = {
-        data: {
-            x: 'x',
-            json: data,
-            type: 'bar',
-            // groups: [groups],
-        },
-        axis: {
-            x: {
-                type: 'timeseries',
-                tick: {
-                    format: '%d.%m.%Y'
+    if (options.showDates) {
+        var chart = {
+            data: {
+                x: 'x',
+                json: data,
+                type: 'bar',
+                // groups: [groups], // enable this to stack bars
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%d.%m.%Y'
+                    }
                 }
-            }
-        },
+            },
+        }
+    } else {
+        var chart = {
+            data: {
+                json: data,
+                type: 'bar',
+                // groups: [groups], // enable this to stack bars
+            },
+        }
     }
 
     return chart
