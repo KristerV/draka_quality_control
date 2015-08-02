@@ -8,7 +8,7 @@ Meteor.methods({
                 productCode: 1,
                 productDescription: "xxx",
                 cooldownTime: 1,
-                consignment: "xxx",
+                batch: "xxx",
                 orderNumber: 123,
                 quantity: 123,
                 createdAt: date,

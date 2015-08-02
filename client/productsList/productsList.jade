@@ -13,7 +13,7 @@ template(name="productsList")
 							              template="bootstrap3-horizontal"
 							              label-class="col-sm-3"
 							              input-col-class="col-sm-9")
-							+afQuickField(name="consignment"
+							+afQuickField(name="batch"
 							              template="bootstrap3-horizontal"
 							              label-class="col-sm-3"
 							              input-col-class="col-sm-9")
@@ -53,7 +53,7 @@ template(name="productsList")
 							tr(class="{{#unless $eq status 'Ootel'}}clickable{{/unless}} status-{{status}} {{#if $eq passed true}}result-passed{{else}}result-failed{{/if}} {{#if currentUser}}clickable{{/if}}" data-product-id="{{_id}}")
 								td {{productCode}}
 								td {{productDescription}}
-								td.small-width {{consignment}}
+								td.small-width {{batch}}
 								td.small-width {{orderNumber}}
 								td.small-width {{quantity}}
 								td(style="text-align:right" class="{{#if $not timeLeft}}bg-danger{{/if}}") {{timeLeft}}
