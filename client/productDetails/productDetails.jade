@@ -1,6 +1,5 @@
 template(name="productDetails")
 	.productDetails.container
-		+buttonToProductsList
 		if currentUser
 			button.btn.btn-danger(name="delete-product") Kustuta toode
 		+autoForm(collection="ProductsCollection" id="updateProductForm" type="update" class="form-horizontal" doc=this)

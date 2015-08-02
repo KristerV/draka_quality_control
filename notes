@@ -1,7 +1,5 @@
-Exporti tulevad deleted väärtused
 navigatsiooni nupud lähevad segaseks - navbar!
-MUP on ubuntu only.
-
+MUP on ubuntu only. https://github.com/arunoda/meteor-up#production-quality-meteor-deployments
 
 1. Käsitsi andmete import tuleb windowsis käsitsi seadistada, aga õnneks on nüüd linux :)
 2. Export CSV on peidetud

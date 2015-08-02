@@ -23,7 +23,6 @@ natestrauser:select2
 mizzao:timesync
 oaf:moment-duration-format
 zimme:select2-bootstrap3-css
-accounts-ui
 accounts-password
 alethes:pages
 mikowals:batch-insert
@@ -35,3 +34,4 @@ lfergon:exportcsv
 chhib:selectize-bootstrap-3
 comerc:autoform-selectize
 perak:c3
+ian:accounts-ui-bootstrap-3

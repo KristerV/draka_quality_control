@@ -1,0 +1,16 @@
+template(name="Layout")
+    .navbar.navbar-default
+        .container-fluid
+            ul.nav.navbar-nav
+                li
+                    a(href="/") Tooted
+            ul.nav.navbar-nav.navbar-right
+                if currentUser
+                    li
+                        a(href="/productMap") Toote parameetrid
+                    li
+                        a(href="#" id="exportCSV") Ekspordi CSV
+                    li
+                        a(href="/stats") Statistika
+                +loginButtons
+    +yield
