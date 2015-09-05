@@ -19,6 +19,10 @@ Template.productMap.events({
 	'change input[name="cooldownTime"]': function(e){
 		ProductMap.updateField(e)
 	},
+	'change input#descriptionFilter': function(e) {
+		var regex = new RegExp(e.target.value,"gi");
+		Pages.set({filters: {description: regex}})
+	},
 })
 
 ProductMap = {

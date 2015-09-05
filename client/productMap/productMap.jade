@@ -1,6 +1,9 @@
 template(name="productMap")
 	.productMap.container
-		button.btn.btn-success.btn-raised(name="import-csv") Käsitsi andmete import
+		button.btn.btn-success.btn-raised.inline(name="import-csv") Käsitsi andmete import
+		.form-group.inline
+			label.inline(for="descriptionFilter") Kirjelduse filter
+			input.form-control.inline( style="width: 300px" id="descriptionFilter")
 		.panel
 			.panel-body
 				+pagesNav
