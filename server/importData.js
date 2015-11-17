@@ -6,7 +6,7 @@ Meteor.methods({
 		var fiber = Meteor.npmRequire('fibers')
 
 		// Read file
-		fs.readFile(process.env.PWD + '/private/andmed.txt', 'utf8', function (err,data) {
+		fs.readFile('/home/zhdan/draka_quality_control/private/andmed.txt', 'utf8', function (err,data) {
 
 			// Deal with error
 			if (err)

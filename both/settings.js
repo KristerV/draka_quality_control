@@ -3,10 +3,11 @@ Settings = {
 		// Jutumärkides olevaid väärtusi võid alati muuta, aga koolonist eespool
 		// väärtusi ära muuda. Lisada võid küll. Koolonist eespool olevad
 		// väärtused  kannatavad ainult tähti ja numbreid.
-		measurement1: "measurement1",
-		measurement2: "measurement2",
-		measurement3: "measurement3",
-		measurement4: "measurement4",
+		L1PRUUN: "L1-PRUUN",
+		L2MUST: "L2-MUST",
+		L3HALL: "L3-HALL",
+		PENKOROKANDETROSS: "PEN-KORO / KANDETROSS",
+		NSININE: "N-SININE",
 	},
 	getMeasurementsSchema: function() {
 		return _.map(Settings.measurements, function(value, key){
