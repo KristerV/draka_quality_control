@@ -9,21 +9,58 @@ Template.productMapItem.helpers({
 	}
 })
 
-Template.productMap.events({
-	'click button[name="import-csv"]': function(e){
-		Meteor.call('importData')
-	},
-	'change input.measurement-input': function(e){
-		ProductMap.updateField(e)
-	},
-	'change input[name="cooldownTime"]': function(e){
-		ProductMap.updateField(e)
-	},
-	'change input#descriptionFilter': function(e) {
-		var regex = new RegExp(e.target.value,"gi");
-		Pages.set({filters: {description: regex}})
-	},
-})
+Meteor.startup(function(){
+	var productMapEvents = {
+		'click button[name="import-csv"]': function(e){
+			Meteor.call('importData')
+		},
+		'change input.measurement-input': function(e){
+			ProductMap.updateField(e)
+		},
+		'change input[name="cooldownTime"]': function(e){
+			ProductMap.updateField(e)
+		},
+		'change input#descriptionFilter': function(e) {
+			var regex = new RegExp(e.target.value,"gi");
+			Pages.set({filters: {description: regex}})
+		},
+	}
+	productMapEvents['click th:contains(' + Settings.tableHeaders[0] + ')'] = function(e) {
+		if (Pages.get('sort').code === 1) {
+			Pages.set({
+				sort: {
+					code: -1,
+					_id: -1,
+				}
+			});
+		} else {
+			Pages.set({
+				sort: {
+					code: 1,
+					_id: 1,
+				}
+			});
+		}
+	}
+	productMapEvents['click th:contains(' + Settings.tableHeaders[1] + ')'] = function(e) {
+		if (Pages.get('sort').description === 1) {
+			Pages.set({
+				sort: {
+					description: -1,
+					_id: -1,
+				}
+			});
+		} else {
+			Pages.set({
+				sort: {
+					description: 1,
+					_id: 1,
+				}
+			});
+		}
+	}
+	Template.productMap.events(productMapEvents)
+});
 
 ProductMap = {
 	updateField: function(event) {

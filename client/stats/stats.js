@@ -1,6 +1,6 @@
 Template.stats.helpers({
     statsLast8: function() {
-        return getStatistics({limit: 8, showDates: false, label: "8 päeva"})
+        return getStatistics({limit: 8, label: "8 päeva"})
     },
     statsLastMonth: function() {
         var aMonthAgo = moment().subtract(1, 'month').toDate()
@@ -13,7 +13,6 @@ Template.stats.helpers({
 });
 
 var getStatistics = function(options) {
-    options.showDates = options.showDates !== false ? true : false
     var find = {}
     var settings = {}
     if (options.fromDate) {
@@ -36,7 +35,7 @@ var getStatistics = function(options) {
         _.each(product.measurements, function(m, key){
             dataPoint[m.label] = m.result - m.resistance
         })
-        dataPoint['x'] = product.measurementsTakenDatetime
+        dataPoint['x'] = moment(product.measurementsTakenDatetime).format("HH:mm D.MM.YY")
         data.push(dataPoint)
     })
 
@@ -45,74 +44,48 @@ var getStatistics = function(options) {
         keys.push(value)
     })
 
-    if (options.showDates) {
-        var chart = {
-            tooltip: {
-              show: false
+    var chart = {
+        tooltip: {
+            show: !options.hideTooltips,
+            format: {
             },
-            subchart: {
-                show: options.minimap
+        },
+        subchart: {
+            show: options.minimap
+        },
+        size: {
+            height: $(window).height() / 3.2,
+        },
+        data: {
+            json: data,
+            keys: {
+                value: keys
             },
-            size: {
-                height: $(window).height() / 3.2,
+            type: 'bar',
+            // groups: [groups], // enable this to stack bars
+        },
+        legend: {
+            position: 'right'
+        },
+        axis: {
+            y: {
+                label: {
+                    text: options.label,
+                    position: 'outer-middle'
+                }
             },
-            data: {
-                json: data,
-                keys: {
-                    x: 'x',
-                    value: keys,
-                },
-                type: 'bar',
-                // groups: [groups], // enable this to stack bars
-            },
-            legend: {
-                position: 'right'
-            },
-            axis: {
-                x: {
-                    type: 'timeseries',
-                    tick: {
-                        format: '%d.%m.%Y'
-                    }
-                },
-                y: {
-                    label: {
-                        text: options.label,
-                        position: 'outer-middle'
-                    }
-                },
-            },
-        }
-    } else {
-        var chart = {
-            tooltip: {
-              show: false
-            },
-            subchart: {
-                show: options.minimap
-            },
-            size: {
-                height: $(window).height() / 3.2,
-            },
-            data: {
-                json: data,
-                keys: {
-                    value: keys
-                },
-                type: 'bar',
-                // groups: [groups], // enable this to stack bars
-            },
-            legend: {
-                position: 'right'
-            },
-            axis: {
-                y: {
-                    label: {
-                        text: options.label,
-                        position: 'outer-middle'
-                    }
-                },
-            },
+        },
+    }
+
+    if (!options.hideDates) {
+        chart.data.keys.x = 'x'
+        chart.axis.x = {
+            type: 'category',
+            tick: {
+                fit: false,
+                centered: true,
+                culling: true,
+            }
         }
     }
 

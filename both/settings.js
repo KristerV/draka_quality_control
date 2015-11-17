@@ -1,4 +1,5 @@
 Settings = {
+	tableHeaders: ["Kood", "Kirjeldus", "Jahtumise aeg"],
 	measurements: {
 		// Jutumärkides olevaid väärtusi võid alati muuta, aga koolonist eespool
 		// väärtusi ära muuda. Lisada võid küll. Koolonist eespool olevad

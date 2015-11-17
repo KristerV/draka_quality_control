@@ -3,9 +3,10 @@ Meteor.methods({
         var Mome = moment()
         for (var i = 0; i < 100; i++) {
             var date = Mome.toDate()
-            ProductsCollection.insert({
-                mapId: "xxx",
-                productCode: 1,
+            var mapId = ProductMapCollection.findOne({measurement1: {$exists: 1}})._id
+            var data = {
+                mapId: "5onLfZiyxNGT4jpiX",
+                productCode: parseInt(Math.random() * 100000),
                 productDescription: "xxx",
                 cooldownTime: 1,
                 batch: "xxx",
@@ -35,7 +36,8 @@ Meteor.methods({
                     },
                 ],
                 measurementsTakenDatetime: date,
-            })
+            }
+            ProductsCollection.insert(data)
             Mome.subtract(randInt(0, 4), 'days').subtract(randInt(0, 12), 'hours')
         }
     }
