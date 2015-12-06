@@ -19,7 +19,6 @@ Template.stats.helpers({
         return getStatistics({
             fromDate: aYearAgo,
             label: "Aasta",
-            minimap:true,
             legend: false,
             summarize: 'month',
         })

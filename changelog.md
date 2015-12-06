@@ -12,10 +12,12 @@
 ### Mõõtmiste graafiku muudatused
 
 - [x] Eemaldada legend
-- [ ] Esimene graafik
-    - [x] Graafikul hiirega peale minnes näita toote kirjeldust pealkirjas pärast kuupäeva
+- [x] Graafikul hiirega peale minnes näita toote kirjeldust pealkirjas pärast kuupäeva
+- [x] % ülekulu märkida = ((Nõue – Mõõdetud) / Nõue) * 100
+- [ ] Üle on punased, alla on sinised.
+
+- [x] Esimene graafik
     - [x] Pikkuseks viimased 30
-    - [ ] % ülekulu märkida. Üle on punased, alla on sinised. = ((Nõue – Mõõdetud) / Nõue) * 100
 - [x] Kuu graafik eemaldada
 - [x] Aasta graafik
     - [x] näidata kuu keskmisi, mitte igat mõõtmist
