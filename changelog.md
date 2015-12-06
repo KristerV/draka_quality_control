@@ -7,7 +7,7 @@
 - [x] Tooted -> Toote mõõtmised
 - [x] Pealehe tabelisse ka loomise ja mõõtmise kuupäevad
 - [x] Pealehele kirjelduse filter
-- [ ] Pealehel sortimine "toote parameeter" ja "tootekirjeldus" järgi
+- [x] Pealehel sortimine "toote parameeter" ja "tootekirjeldus" järgi
 
 ### Mõõtmiste graafiku muudatused
 

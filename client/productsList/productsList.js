@@ -1,15 +1,21 @@
 Template.productsList.helpers({
 	products: function() {
+		// Filter fields
 		var filter = ['Ootel', 'Katsetamisele']
 		if (Session.get('filterKinnitatud'))
 			filter.push('Kinnitatud')
 
+		// Find
 		var find = {status: {$in: filter}, deleted: {$ne: true}}
 		var regex = Session.get('productListDescriptionRegex')
 		if (typeof regex === 'object')
 			regex = ".*"
 		find.productDescription = {$regex: RegExp(regex, "gi")}
-		return ProductsCollection.find(find,{sort: {createdAt: 1}})
+
+		// Sorting
+		var sortField = Session.get('sortProductListBy')
+
+		return ProductsCollection.find(find,{sort: sortField})
 	},
 	timeLeft: function() {
 
@@ -81,4 +87,15 @@ Template.productsList.events({
 		// Session is not able to pass regex objects reactivly
 		Session.set("productListDescriptionRegex", regex)
 	},
+	'click th.sort-enabled': function(e) {
+		var sortField = e.target.id
+		var currentSort = Session.get("sortProductListBy")
+		var sortObj = {}
+		if (currentSort && sortField in currentSort) {
+			sortObj[sortField] = currentSort[sortField] * -1
+		} else {
+			sortObj[sortField] = -1
+		}
+		Session.set("sortProductListBy", sortObj)
+	}
 })

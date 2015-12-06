@@ -41,13 +41,13 @@ template(name="productsList")
 				table.table.table-hover(class="{{#if $.Session.get 'filterOotel'}}show-Ootel{{/if}} {{#if $.Session.get 'filterKatsetamisele'}}show-Katsetamisele{{/if}} {{#if $.Session.get 'filterKinnitatud'}}show-Kinnitatud{{/if}}")
 					thead
 						tr(style="display: table-row")
-							th Toote parameeter
-							th Tootekirjeldus
-							th Loodud
-							th Mõõdetud
-							th.small-width Partii
-							th.small-width Tootmistellimus
-							th.small-width Trumli pikkus
+							th.sort-enabled#productCode Toote parameeter
+							th.sort-enabled#productDescription Tootekirjeldus
+							th.sort-enabled#createdAt Loodud
+							th.sort-enabled#measurementsTakenDatetime Mõõdetud
+							th.small-width.sort-enabled#batch Partii
+							th.small-width.sort-enabled#orderNumber Tootmistellimus
+							th.small-width.sort-enabled#quantity Trumli pikkus
 							th(style="text-align:right") Aega jäänud
 					tbody
 						each products
