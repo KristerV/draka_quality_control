@@ -32,6 +32,10 @@ template(name="productsList")
 			button.btn.btn-toggle(name="Ootel" type="button" class="{{#if $.Session.equals 'filterOotel' true}}active{{/if}}") Ootel
 			button.btn.btn-toggle(name="Katsetamisele" type="button" class="{{#if $.Session.equals 'filterKatsetamisele' true}}active{{/if}}") Katsetamisele
 			button.btn.btn-toggle(name="Kinnitatud" type="button" class="{{#if $.Session.equals 'filterKinnitatud' true}}active{{/if}}") Kinnitatud
+		br
+		.form-group
+			label.inline(for="descriptionFilter") Tootekirjelduse filter
+			input.form-control.inline( style="width: 300px" id="descriptionFilter")
 		.panel
 			.panel-body
 				table.table.table-hover(class="{{#if $.Session.get 'filterOotel'}}show-Ootel{{/if}} {{#if $.Session.get 'filterKatsetamisele'}}show-Katsetamisele{{/if}} {{#if $.Session.get 'filterKinnitatud'}}show-Kinnitatud{{/if}}")

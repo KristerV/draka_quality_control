@@ -3,7 +3,13 @@ Template.productsList.helpers({
 		var filter = ['Ootel', 'Katsetamisele']
 		if (Session.get('filterKinnitatud'))
 			filter.push('Kinnitatud')
-		return ProductsCollection.find({status: {$in: filter}, deleted: {$ne: true}},{sort: {createdAt: 1}})
+
+		var find = {status: {$in: filter}, deleted: {$ne: true}}
+		var regex = Session.get('productListDescriptionRegex')
+		if (typeof regex === 'object')
+			regex = ".*"
+		find.productDescription = {$regex: RegExp(regex, "gi")}
+		return ProductsCollection.find(find,{sort: {createdAt: 1}})
 	},
 	timeLeft: function() {
 
@@ -67,5 +73,12 @@ Template.productsList.events({
 	'click tr.clickable': function(e) {
 		var productId = $(e.currentTarget).attr('data-product-id')
 		Router.go('/product/'+productId)
+	},
+	'change input#descriptionFilter': function(e) {
+		// var regex = new RegExp(e.target.value,"gi");
+		var regex = e.target.value
+
+		// Session is not able to pass regex objects reactivly
+		Session.set("productListDescriptionRegex", regex)
 	},
 })
