@@ -11,7 +11,7 @@
 
 ### Mõõtmiste graafiku muudatused
 
-- [ ] Eemaldada legend
+- [x] Eemaldada legend
 - [ ] Esimene graafik
     - [ ] Graafikul hiirega peale minnes näita toote kirjeldust pealkirjas pärast kuupäeva
     - [x] Pikkuseks viimased 30

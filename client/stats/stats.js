@@ -1,6 +1,6 @@
 Template.stats.helpers({
     statsLast8: function() {
-        return getStatistics({limit: 30, label: "30 viimast", minimap:true})
+        return getStatistics({limit: 30, label: "30 viimast", minimap:true, legend: false})
     },
     statsLastMonth: function() {
         var aMonthAgo = moment().subtract(1, 'month').toDate()
@@ -8,7 +8,7 @@ Template.stats.helpers({
     },
     statsLastYear: function() {
         var aYearAgo = moment().subtract(1, 'year').toDate()
-        return getStatistics({fromDate: aYearAgo, label: "Aasta", minimap:true})
+        return getStatistics({fromDate: aYearAgo, label: "Aasta", minimap:true, legend: false})
     },
 });
 
@@ -65,6 +65,7 @@ var getStatistics = function(options) {
             // groups: [groups], // enable this to stack bars
         },
         legend: {
+            hide: !options.legend,
             position: 'right'
         },
         axis: {
