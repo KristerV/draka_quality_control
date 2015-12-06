@@ -4,12 +4,12 @@
 
 ### Üldisemad muudatused
 
-- [ ] Tooted -> Toote mõõtmised
+- [x] Tooted -> Toote mõõtmised
 - [ ] Pealehe tabelisse ka loomise ja mõõtmise kuupäevad
 - [ ] Pealehele kirjelduse filter
 - [ ] Pealehel sortimine "toote parameeter" ja "tootekirjeldus" järgi
 
-### Graafiku muudatused
+### Mõõtmiste graafiku muudatused
 
 - [ ] Esimene graafik
     - [ ] Graafikul hiirega peale minnes näita toote kirjeldust pealkirjas pärast kuupäeva
