@@ -11,13 +11,16 @@
 
 ### Mõõtmiste graafiku muudatused
 
+- [ ] Eemaldada legend
 - [ ] Esimene graafik
     - [ ] Graafikul hiirega peale minnes näita toote kirjeldust pealkirjas pärast kuupäeva
-    - [ ] Muudetava ajapikkusega graafik, default 8 päeva või viimased 30
+    - [x] Pikkuseks viimased 30
     - [ ] % ülekulu märkida. Üle on punased, alla on sinised.
     - [ ] %-diline takistuse ülekulu = ((Nõue – Mõõdetud) / Nõue) * 100
-- [ ] Kuu graafik eemaldada
-- [ ] Aasta graafikul näidata kuu keskmisi
+- [x] Kuu graafik eemaldada
+- [ ] Aasta graafik
+    - [ ] näidata kuu keskmisi, mitte igat mõõtmist
+    - [x] muudetav ajapikkus
 
 ### KSM moodul
 

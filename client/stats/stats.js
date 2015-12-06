@@ -1,6 +1,6 @@
 Template.stats.helpers({
     statsLast8: function() {
-        return getStatistics({limit: 8, label: "8 päeva"})
+        return getStatistics({limit: 30, label: "30 viimast", minimap:true})
     },
     statsLastMonth: function() {
         var aMonthAgo = moment().subtract(1, 'month').toDate()
@@ -8,7 +8,7 @@ Template.stats.helpers({
     },
     statsLastYear: function() {
         var aYearAgo = moment().subtract(1, 'year').toDate()
-        return getStatistics({fromDate: aYearAgo, label: "Aasta"})
+        return getStatistics({fromDate: aYearAgo, label: "Aasta", minimap:true})
     },
 });
 
