@@ -13,10 +13,9 @@
 
 - [x] Eemaldada legend
 - [ ] Esimene graafik
-    - [ ] Graafikul hiirega peale minnes näita toote kirjeldust pealkirjas pärast kuupäeva
+    - [x] Graafikul hiirega peale minnes näita toote kirjeldust pealkirjas pärast kuupäeva
     - [x] Pikkuseks viimased 30
-    - [ ] % ülekulu märkida. Üle on punased, alla on sinised.
-    - [ ] %-diline takistuse ülekulu = ((Nõue – Mõõdetud) / Nõue) * 100
+    - [ ] % ülekulu märkida. Üle on punased, alla on sinised. = ((Nõue – Mõõdetud) / Nõue) * 100
 - [x] Kuu graafik eemaldada
 - [x] Aasta graafik
     - [x] näidata kuu keskmisi, mitte igat mõõtmist

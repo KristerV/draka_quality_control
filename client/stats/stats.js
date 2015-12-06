@@ -48,14 +48,15 @@ var getStatistics = function(options) {
             return false
         var dataPoint = {}
         _.each(product.measurements, function(m, key){
-            dataPoint[m.label] = m.result - m.resistance
+            dataPoint[m.label] = -((m.resistance - m.result) / m.resistance) * 100 // in percents %
         })
-        var x = moment(product.measurementsTakenDatetime).format("HH:mm D.MM.YY")
+
 
         var monthLast = lastProduct ? moment(lastProduct.measurementsTakenDatetime).month() : null
         var monthThis = moment(product.measurementsTakenDatetime).month()
 
         if (options.summarize === 'month') {
+            var x = moment(product.measurementsTakenDatetime).format("MMM YYYY")
             if (monthLast === monthThis) {
                 _.each(data[data.length-1], function(value, key) {
                     if (key === 'x') return
@@ -67,6 +68,7 @@ var getStatistics = function(options) {
             }
             lastProduct = product
         } else {
+            var x = moment(product.measurementsTakenDatetime).format("HH:mm D.MM.YY")
             x += " " + product.productDescription // Add description to tooltip title
             dataPoint['x'] = x
             data.push(dataPoint)
@@ -109,7 +111,7 @@ var getStatistics = function(options) {
                     position: 'outer-middle'
                 },
                 tick: {
-                    format: function (d) { return d.toFixed(4); }
+                    // format: function (d) { return d.toFixed(4); }
                 }
             },
         },
