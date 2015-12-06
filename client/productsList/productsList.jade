@@ -39,6 +39,8 @@ template(name="productsList")
 						tr(style="display: table-row")
 							th Toote parameeter
 							th Tootekirjeldus
+							th Loodud
+							th Mõõdetud
 							th.small-width Partii
 							th.small-width Tootmistellimus
 							th.small-width Trumli pikkus
@@ -48,6 +50,8 @@ template(name="productsList")
 							tr(class="{{#unless $eq status 'Ootel'}}clickable{{/unless}} status-{{status}} {{#if $eq passed true}}result-passed{{else}}result-failed{{/if}} {{#if currentUser}}clickable{{/if}}" data-product-id="{{_id}}")
 								td {{productCode}}
 								td {{productDescription}}
+								td {{moment createdAt}}
+								td {{moment measurementsTakenDatetime}}
 								td.small-width {{batch}}
 								td.small-width {{orderNumber}}
 								td.small-width {{quantity}}

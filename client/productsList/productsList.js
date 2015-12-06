@@ -47,6 +47,9 @@ Template.productsList.helpers({
 
 		return map.resistance
 	},
+	moment: function(date) {
+		return moment(date).format("DD.MM.YY")
+	}
 })
 Template.productsList.events({
 	'click button[name="Ootel"]': function(e) {

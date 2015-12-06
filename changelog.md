@@ -5,7 +5,7 @@
 ### Üldisemad muudatused
 
 - [x] Tooted -> Toote mõõtmised
-- [ ] Pealehe tabelisse ka loomise ja mõõtmise kuupäevad
+- [x] Pealehe tabelisse ka loomise ja mõõtmise kuupäevad
 - [ ] Pealehele kirjelduse filter
 - [ ] Pealehel sortimine "toote parameeter" ja "tootekirjeldus" järgi
 
