@@ -67,6 +67,7 @@ var getStatistics = function(options) {
             }
             lastProduct = product
         } else {
+            x += " " + product.productDescription // Add description to tooltip title
             dataPoint['x'] = x
             data.push(dataPoint)
         }
