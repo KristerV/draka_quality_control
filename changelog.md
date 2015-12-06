@@ -18,8 +18,8 @@
     - [ ] % ülekulu märkida. Üle on punased, alla on sinised.
     - [ ] %-diline takistuse ülekulu = ((Nõue – Mõõdetud) / Nõue) * 100
 - [x] Kuu graafik eemaldada
-- [ ] Aasta graafik
-    - [ ] näidata kuu keskmisi, mitte igat mõõtmist
+- [x] Aasta graafik
+    - [x] näidata kuu keskmisi, mitte igat mõõtmist
     - [x] muudetav ajapikkus
 
 ### KSM moodul

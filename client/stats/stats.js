@@ -1,14 +1,28 @@
 Template.stats.helpers({
     statsLast8: function() {
-        return getStatistics({limit: 30, label: "30 viimast", minimap:true, legend: false})
+        return getStatistics({
+            limit: 30,
+            label: "30 viimast",
+            minimap:true,
+            legend: false
+        })
     },
     statsLastMonth: function() {
         var aMonthAgo = moment().subtract(1, 'month').toDate()
-        return getStatistics({fromDate: aMonthAgo, label: "Kuu"})
+        return getStatistics({
+            fromDate: aMonthAgo,
+            label: "Kuu"
+        })
     },
     statsLastYear: function() {
         var aYearAgo = moment().subtract(1, 'year').toDate()
-        return getStatistics({fromDate: aYearAgo, label: "Aasta", minimap:true, legend: false})
+        return getStatistics({
+            fromDate: aYearAgo,
+            label: "Aasta",
+            minimap:true,
+            legend: false,
+            summarize: 'month',
+        })
     },
 });
 
@@ -27,6 +41,7 @@ var getStatistics = function(options) {
     var products = ProductsCollection.find(find, settings).fetch()
     var data = []
     var groups = []
+    var lastProduct
 
     _.each(products, function(product){
         if (!product.measurementsTakenDatetime)
@@ -35,8 +50,26 @@ var getStatistics = function(options) {
         _.each(product.measurements, function(m, key){
             dataPoint[m.label] = m.result - m.resistance
         })
-        dataPoint['x'] = moment(product.measurementsTakenDatetime).format("HH:mm D.MM.YY")
-        data.push(dataPoint)
+        var x = moment(product.measurementsTakenDatetime).format("HH:mm D.MM.YY")
+
+        var monthLast = lastProduct ? moment(lastProduct.measurementsTakenDatetime).month() : null
+        var monthThis = moment(product.measurementsTakenDatetime).month()
+
+        if (options.summarize === 'month') {
+            if (monthLast === monthThis) {
+                _.each(data[data.length-1], function(value, key) {
+                    if (key === 'x') return
+                    data[data.length-1][key] = (value + dataPoint[key]) / 2
+                })
+            } else {
+                dataPoint['x'] = x
+                data.push(dataPoint)
+            }
+            lastProduct = product
+        } else {
+            dataPoint['x'] = x
+            data.push(dataPoint)
+        }
     })
 
     var keys = []
@@ -73,6 +106,9 @@ var getStatistics = function(options) {
                 label: {
                     text: options.label,
                     position: 'outer-middle'
+                },
+                tick: {
+                    format: function (d) { return d.toFixed(4); }
                 }
             },
         },
