@@ -9,6 +9,7 @@ Settings = {
 		measurement3: "measurement3",
 		measurement4: "measurement4",
 	},
+	KSMdatapath: 'U:\\KSM\\data\\',
 	getMeasurementsSchema: function() {
 		return _.map(Settings.measurements, function(value, key){
 			value = new Spacebars.SafeString(value)

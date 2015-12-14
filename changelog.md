@@ -25,8 +25,8 @@
 
 ### KSM moodul
 
-- [ ] Failid tulevad kaustast U:\KSM\data
-- [ ] Failist noppida tulbad
+- [x] Failid tulevad kaustast U:\KSM\data
+- [x] Failist noppida tulbad
     - [ ] Measure time - millisele ajajoonele läheb vastav mõõtmine
     - [ ] Extra1 - Liini number, ehk graafiku nimi
     - [ ] Wall_extra_present - Mõõtmis tulemus "%-diline ülepaksus"
