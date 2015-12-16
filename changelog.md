@@ -34,9 +34,9 @@
 - [ ] Graafik
     - [x] Iga liini kohta eraldi graafik
     - [x] Näha on 20 viimast mõõtmist
-    - [ ] Aja ulatust saab nihutada
+    - [x] Aja ulatust saab nihutada
     - [x] y-telg on protsendiline ülepaksus ja x-telg on aeg
     - [ ] ülekulu on punane, normis on sinine
-    - [ ] Kaks vahetust, kaks tulpa
-        - [ ] päevane vahetus 7.00 -> 19.00 (kollasega võiks märkida graafikul)
-        - [ ] öine vahetus 19.00 -> 7:00 (sinisega graafik või postid)
+    - [x] Kaks vahetust, kaks tulpa
+        - [x] päevane vahetus 7.00 -> 19.00 (kollasega võiks märkida graafikul)
+        - [x] öine vahetus 19.00 -> 7:00 (sinisega graafik või postid)
