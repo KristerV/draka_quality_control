@@ -1,6 +1,3 @@
-Meteor.startup(function(){
-    Meteor.call('import-KSM-data')
-});
 Meteor.methods({
     "import-KSM-data": function(){
 

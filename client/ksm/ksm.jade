@@ -1,0 +1,13 @@
+template(name="ksm")
+    .ksm
+        .btn-group(role="group")
+            button.btn.btn-toggle(name="year" type="button" class="{{#if $.Session.equals 'KSM-range' 'year'}}active{{/if}}") 12 kuud
+            button.btn.btn-toggle(name="month" type="button" class="{{#if $.Session.equals 'KSM-range' 'month'}}active{{/if}}") 30 päeva
+            button.btn.btn-toggle(name="last20" type="button" class="{{#if $.Session.equals 'KSM-range' 'last20'}}active{{/if}}") viimased 20
+        .graphs
+            +c3(data=ksmData6 id="ksm6")
+            +c3(data=ksmData8 id="ksm8")
+            +c3(data=ksmData21 id="ksm21")
+            +c3(data=ksmData22 id="ksm22")
+            +c3(data=ksmData36 id="ksm36")
+            +c3(data=ksmData38 id="ksm38")
