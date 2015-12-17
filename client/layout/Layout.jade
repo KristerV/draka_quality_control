@@ -3,7 +3,7 @@ template(name="Layout")
         .container-fluid
             ul.nav.navbar-nav
                 li
-                    a(href="/") Tooted
+                    a(href="/") Toote mõõtmised
             ul.nav.navbar-nav.navbar-right
                 if currentUser
                     li
@@ -12,5 +12,7 @@ template(name="Layout")
                         a(href="#" id="exportCSV") Ekspordi CSV
                     li
                         a(href="/stats") Statistika
+                    li
+                        a(href="/ksm") KSM
                 +loginButtons
     +yield
