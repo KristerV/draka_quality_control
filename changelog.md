@@ -40,3 +40,6 @@
     - [x] Kaks vahetust, kaks tulpa
         - [x] päevane vahetus 7.00 -> 19.00 (kollasega võiks märkida graafikul)
         - [x] öine vahetus 19.00 -> 7:00 (sinisega graafik või postid)
+
+### Lisa
+- [ ] productListis pealkirjad hüppavad üksteise otsa
