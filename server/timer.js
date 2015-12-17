@@ -6,3 +6,7 @@ Meteor.setInterval(function(){
 Meteor.setInterval(function(){
 	Meteor.call('import-KSM-data')
 }, 5 * 60 * 1000)
+
+Meteor.setTimeout(function(){
+	Meteor.call('import-KSM-data')
+}, 1000)
