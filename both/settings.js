@@ -10,7 +10,7 @@ Settings = {
 		PENKOROKANDETROSS: "PEN-KORO / KANDETROSS",
 		NSININE: "N-SININE",
 	},
-	KSMdatapath: 'U:\\\\KSM\\data\\',
+	KSMdatapath: '/mnt/srv193-01ee/data/',
 	getMeasurementsSchema: function() {
 		return _.map(Settings.measurements, function(value, key){
 			value = new Spacebars.SafeString(value)
