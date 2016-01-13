@@ -3,13 +3,13 @@ Meteor.methods({
         var Mome = moment()
         for (var i = 0; i < 100; i++) {
             var date = Mome.toDate()
-            var mapId = ProductMapCollection.findOne({measurement1: {$exists: 1}})._id
+            var mapId = ProductMapCollection.findOne({L1PRUUN: {$exists: 1}})._id
             var data = {
-                mapId: "5onLfZiyxNGT4jpiX",
+                mapId: mapId,
                 productCode: parseInt(Math.random() * 100000),
-                productDescription: "xxx",
+                productDescription: "DESCRIPTOPN",
                 cooldownTime: 1,
-                batch: "xxx",
+                batch: "BATCH",
                 orderNumber: 123,
                 quantity: 123,
                 createdAt: date,

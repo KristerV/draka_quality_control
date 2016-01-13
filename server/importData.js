@@ -6,7 +6,12 @@ Meteor.methods({
 		var fiber = Meteor.npmRequire('fibers')
 
 		// Read file
-		fs.readFile('/home/zhdan/draka_quality_control/private/andmed.txt', 'utf8', function (err,data) {
+		var datapath = process.env.NODE_ENV === 'development' ?
+			'/home/krister/code/draka_quality_control/private/andmed.txt'
+            :
+            '/home/zhdan/draka_quality_control/private/andmed.txt'
+
+		fs.readFile(datapath, 'utf8', function (err,data) {
 
 			// Deal with error
 			if (err)
@@ -33,7 +38,7 @@ Meteor.methods({
 				fiber(function(){ // Error if fiber is not used, not totally sure why.
 					ProductMapCollection.upsert({code: code}, {$set: {code: code, description: desc}})
 				}).run()
-					
+
 			})
 		});
 	},
