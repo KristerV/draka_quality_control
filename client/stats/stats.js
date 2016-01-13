@@ -69,6 +69,7 @@ var getStatistics = function(options) {
         } else {
             var x = moment(product.measurementsTakenDatetime).format("HH:mm D.MM.YY")
             x += " " + product.productDescription // Add description to tooltip title
+            x += " " + product.batch // Add batch nr to tooltip title
             dataPoint['x'] = x
             data.push(dataPoint)
         }
