@@ -41,7 +41,7 @@ template(name="productsList")
 				table.table.table-hover(class="{{#if $.Session.get 'filterOotel'}}show-Ootel{{/if}} {{#if $.Session.get 'filterKatsetamisele'}}show-Katsetamisele{{/if}} {{#if $.Session.get 'filterKinnitatud'}}show-Kinnitatud{{/if}}")
 					thead
 						tr(style="display: table-row")
-						th.sort-enabled#productCode Toote parameeter
+							th.sort-enabled#productCode Toote parameeter
 							th.sort-enabled#productDescription Tootekirjeldus
 							th.sort-enabled#createdAt Loodud
 							th.sort-enabled#measurementsTakenDatetime Mõõdetud
