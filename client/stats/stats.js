@@ -32,10 +32,12 @@ var getStatistics = function(options) {
         find['measurementsTakenDatetime'] = {$gte: options.fromDate}
     }
     if (options.limit) {
+        settings['sort'] = {measurementsTakenDatetime: -1}
         settings['limit'] = options.limit
     }
-
-    settings['sort'] = {measurementsTakenDatetime: 1}
+    else{
+        settings['sort'] = {measurementsTakenDatetime: 1}
+    }
 
     var products = ProductsCollection.find(find, settings).fetch()
     var data = []
@@ -47,7 +49,7 @@ var getStatistics = function(options) {
             return false
         var dataPoint = {}
         _.each(product.measurements, function(m, key){
-            dataPoint[m.label] = -((m.resistance - m.result) / m.resistance) * 100 // in percents %
+            dataPoint[m.label] = ((m.resistance - m.result) / m.resistance) * 100 // in percents %
         })
 
 

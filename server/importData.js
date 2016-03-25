@@ -7,7 +7,7 @@ Meteor.methods({
 
 		// Read file
 		var datapath = process.env.NODE_ENV === 'development' ?
-			'/home/krister/code/draka_quality_control/private/andmed.txt'
+			'/Users/Kaur/draka_quality_control/private/andmed.txt'
             :
             '/home/zhdan/draka_quality_control/private/andmed.txt'
 

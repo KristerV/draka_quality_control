@@ -9,7 +9,7 @@ Meteor.methods({
 
         var files = ['6.liin.dat', '8.liin.dat', '21.liin.dat', '22.liin.dat', '36-1.liin.dat', '38.liin.dat']
         var datapath = process.env.NODE_ENV === 'development' ?
-            '/home/krister/code/draka_quality_control/private/KSM_andmed/'
+            '/Users/Kaur/draka_quality_control/private/KSM_andmed/'
             :
             Settings.KSMdatapath
 
