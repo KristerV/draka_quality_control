@@ -63,7 +63,7 @@ var getKSMStatistics = function(options) {
     else if (rangeString === 'last20')
         limit = 20
     var lineName = options.line+".liin"
-    var dataIn = KSMCollection.find({info4: lineName, measure_time1970: {$gt: rangeStamp}}, {sort: {'measure_time1970': 1}, limit: limit}).fetch()
+    var dataIn = KSMCollection.find({info4: lineName, measure_time1970: {$gt: rangeStamp}}, {sort: {'measure_time1970': -1}, limit: limit}).fetch()
 
     // Organize data
     var organized = []
