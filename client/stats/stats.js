@@ -51,7 +51,7 @@ var getStatistics = function(options) {
         _.each(product.measurements, function(m, key){
             dataPoint[m.label] = ((m.resistance - m.result) / m.resistance) * 100 // in percents %
         })
-
+        
 
         var monthLast = lastProduct ? moment(lastProduct.measurementsTakenDatetime).month() : null
         var monthThis = moment(product.measurementsTakenDatetime).month()
@@ -75,6 +75,7 @@ var getStatistics = function(options) {
             dataPoint['x'] = x
             data.push(dataPoint)
         }
+
     })
 
     var keys = []
@@ -100,11 +101,18 @@ var getStatistics = function(options) {
                 value: keys
             },
             type: 'bar',
+            colors:{
+                'L1-PRUUN': function(d) { return d.value < 0 ? '#C00' : '#0C0'; },
+                'L2-MUST': function(d) { return d.value < 0 ? '#C00' : '#0C0'; },
+                'L3-HALL': function(d) { return d.value < 0 ? '#C00' : '#0C0'; },
+                'N-SININE': function(d) { return d.value < 0 ? '#C00' : '#0C0'; },
+                'PEN-KORO / KANDETROSS': function(d) { return d.value < 0 ? '#C00' : '#0C0'; }
+            } ,
             // groups: [groups], // enable this to stack bars
         },
         legend: {
             hide: !options.legend,
-            position: 'right'
+            position: 'right',
         },
         axis: {
             y: {
@@ -130,6 +138,7 @@ var getStatistics = function(options) {
             }
         }
     }
+
 
     return chart
 }
