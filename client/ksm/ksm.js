@@ -23,10 +23,16 @@ Template.ksm.helpers({
             label: "LIIN 22",
         })
     },
-    ksmData36: function() {
+    ksmData361: function() {
         return getKSMStatistics({
-            line: 36,
-            label: "LIIN 36",
+            line: 361,
+            label: "LIIN 36-1",
+        })
+    },
+    ksmData362: function() {
+        return getKSMStatistics({
+            line: 362,
+            label: "LIIN 36-2",
         })
     },
     ksmData38: function() {
@@ -52,17 +58,25 @@ Template.ksm.events({
 
 var getKSMStatistics = function(options) {
     var rangeString = Session.get('KSM-range')
-
+    console.log(rangeString)
     // Fetch data
     var rangeStamp = 0
     var limit = 10000
     if (rangeString === 'year')
         rangeStamp = moment().subtract(1, 'year').unix()
     else if (rangeString === 'month')
-        rangeStamp = moment().subtract(1, 'month').unix()
+        rangeStamp = moment().subtract(1, 'months').unix()
+
     else if (rangeString === 'last20')
         limit = 20
-    var lineName = options.line+".liin"
+
+    console.log(rangeStamp)
+    if(options.line == 361)
+        var lineName = "36.liin (1kate)"
+    else if(options.line == 362)
+        var lineName = "36.liin (2kate)" 
+    else
+        var lineName = options.line+".liin"
     var dataIn = KSMCollection.find({info4: lineName, measure_time1970: {$gt: rangeStamp}}, {sort: {'measure_time1970': -1}, limit: limit}).fetch()
 
     // Organize data

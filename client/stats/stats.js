@@ -2,7 +2,6 @@ Template.stats.helpers({
     statsLast8: function() {
         return getStatistics({
             limit: 30,
-            label: "30 viimast",
             minimap:true,
             legend: false
         })
@@ -18,7 +17,6 @@ Template.stats.helpers({
         var aYearAgo = moment().subtract(1, 'year').toDate()
         return getStatistics({
             fromDate: aYearAgo,
-            label: "Aasta",
             legend: false,
             summarize: 'month',
         })
@@ -28,6 +26,7 @@ Template.stats.helpers({
 var getStatistics = function(options) {
     var find = {}
     var settings = {}
+    find['deleted'] = false
     if (options.fromDate) {
         find['measurementsTakenDatetime'] = {$gte: options.fromDate}
     }
@@ -38,6 +37,7 @@ var getStatistics = function(options) {
     else{
         settings['sort'] = {measurementsTakenDatetime: 1}
     }
+
 
     var products = ProductsCollection.find(find, settings).fetch()
     var data = []
