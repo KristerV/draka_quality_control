@@ -1,4 +1,4 @@
-Meteor.startup(function () {
+/*Meteor.startup(function () {
 	var Api = new Restivus({
 			useDefaultAuth: false,
 			prettyJson: true,
@@ -23,7 +23,8 @@ Meteor.startup(function () {
 				console.log(product);
 				console.log(query);
 				return*/
-			}
+				
+		/*	}
 		});
 
 		Api.addRoute('search/:string', {authRequired: false}, {
@@ -40,4 +41,4 @@ Meteor.startup(function () {
 
 		
 
-});
+});*/

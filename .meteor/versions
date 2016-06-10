@@ -18,7 +18,6 @@ coffeescript@1.0.6
 comerc:autoform-selectize@2.2.3
 csats:csv-parse@1.0.1
 dburles:collection-helpers@1.0.3
-dburles:mongo-collection-instances@0.3.4
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
@@ -27,7 +26,6 @@ evaisse:csv@0.1.4
 fastclick@1.0.3
 fezvrasta:bootstrap-material-design@0.3.0
 geojson-utils@1.0.3
-gwendall:body-events@0.1.6
 harrison:babyparse@1.0.1
 harrison:papa-parse@1.0.19
 hilios:jquery.countdown@2.0.4
@@ -48,7 +46,6 @@ jquery@1.11.3_2
 json@1.0.3
 juliancwirko:s-alert@2.4.1
 juliancwirko:s-alert-bouncyflip@1.1.3
-lai:collection-extensions@0.1.4
 launch-screen@1.0.2
 less@1.0.14
 lfergon:exportcsv@0.0.8
@@ -59,23 +56,6 @@ meteor@1.1.6
 meteor-platform@1.2.2
 meteorhacks:async@1.0.0
 meteorhacks:npm@1.3.0
-meteortoys:allthings@2.0.0
-meteortoys:authenticate@1.0.0
-meteortoys:autopub@1.0.0
-meteortoys:blueprint@1.0.0
-meteortoys:email@1.0.0
-meteortoys:hotreload@1.0.0
-meteortoys:listen@1.0.0
-meteortoys:method@1.0.0
-meteortoys:pro@1.0.0
-meteortoys:pub@1.0.0
-meteortoys:result@1.0.0
-meteortoys:shell@1.0.0
-meteortoys:status@1.0.0
-meteortoys:sub@1.0.0
-meteortoys:throttle@1.0.0
-meteortoys:toykit@1.0.4
-meteortoys:toypro@1.0.0
 mikowals:batch-insert@1.1.9
 minifiers@1.1.5
 minimongo@1.0.8
@@ -85,10 +65,7 @@ momentjs:moment@2.10.3
 mongo@1.1.0
 mquandalle:jade@0.4.3
 mquandalle:jade-compiler@0.4.3
-msavin:jetsetter@1.1.0
-msavin:mongol@1.2.0
 natestrauser:select2@3.5.1
-nimble:restivus@0.8.4
 npm-bcrypt@0.7.8_2
 npm-container@1.0.0
 oaf:moment-duration-format@1.3.2
@@ -106,7 +83,6 @@ sergeyt:d3@3.4.1
 service-configuration@1.0.4
 session@1.1.0
 sha@1.0.3
-simple:json-routes@1.0.4
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
