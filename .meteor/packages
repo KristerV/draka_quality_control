@@ -13,9 +13,9 @@ aldeed:collection2
 dburles:collection-helpers
 momentjs:moment
 iron:router
-iron:middleware-stack@1.1.0
-iron:core@1.0.11
-iron:url@1.0.11
+iron:middleware-stack
+iron:core
+iron:url
 fezvrasta:bootstrap-material-design
 juliancwirko:s-alert
 juliancwirko:s-alert-bouncyflip
