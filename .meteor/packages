@@ -14,6 +14,8 @@ dburles:collection-helpers
 momentjs:moment
 iron:router
 iron:middleware-stack@1.1.0
+iron:core
+iron:url
 fezvrasta:bootstrap-material-design
 juliancwirko:s-alert
 juliancwirko:s-alert-bouncyflip

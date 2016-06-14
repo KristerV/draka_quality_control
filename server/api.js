@@ -42,3 +42,8 @@
 		
 
 });*/
+
+Meteor.startup(function () {
+	var f = process.env.METEOR_OFFLINE_CATALOG;
+	console.log(f);
+});
