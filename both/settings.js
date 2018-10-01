@@ -9,6 +9,8 @@ Settings = {
 		L3HALL: "L3-HALL",
 		PENKOROKANDETROSS: "PEN-KORO / KANDETROSS",
 		NSININE: "N-SININE",
+		L4VALGE: "L4-VALGE",
+		L5PUNANE: "L5-PUNANE",
 	},
 	KSMdatapath: '/mnt/srv193-01ee/data/',
 	getMeasurementsSchema: function() {
