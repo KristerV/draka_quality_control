@@ -1,5 +1,6 @@
 Meteor.methods({
 	importData: function() {
+		var projectRoot = process.cwd().split('.meteor')[0]
 
 		// Node.js modules
 		var fs = Meteor.npmRequire('fs')
@@ -7,7 +8,7 @@ Meteor.methods({
 
 		// Read file
 		var datapath = process.env.NODE_ENV === 'development' ?
-			'/Users/Kaur/draka_quality_control/private/andmed.txt'
+			projectRoot+'private/andmed.txt'
             :
             '/home/zhdan/draka_quality_control/private/andmed.txt'
 

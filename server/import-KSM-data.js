@@ -1,5 +1,6 @@
 Meteor.methods({
     "import-KSM-data": function(){
+        var projectRoot = process.cwd().split('.meteor')[0]
 
 		// Node.js modules
 		var fs = Meteor.npmRequire('fs')
@@ -9,7 +10,7 @@ Meteor.methods({
 
         var files = ['6.liin.dat', '8.liin.dat', '21.liin.dat', '22.liin.dat', '36-1.liin.dat', '38.liin.dat']
         var datapath = process.env.NODE_ENV === 'development' ?
-            '/Users/Kaur/draka_quality_control/private/KSM_andmed/'
+            projectRoot+'private/KSM_andmed/'
             :
             Settings.KSMdatapath
 
