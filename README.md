@@ -28,7 +28,7 @@ So currently we just run 'meteor --production' in the server like this:
 1. The script logs to ~/run_server.log
 1. The meteor server logs to ~/meteor_logs/run_DATE.log
 
-To update files just scp in the new ones and check that changes updated into the server. run_server.sh is also updated.
+To update files just scp in the new ones and check that changes updated into the server. run_server.sh is also updated. However if you scp from Windows to Ubuntu the run_server.sh seems to break because of newline and you need to [replace it](https://stackoverflow.com/questions/14219092/bash-script-and-bin-bashm-bad-interpreter-no-such-file-or-directory).
 
 ## Old deploying notes (deprecated)
 
