@@ -1,5 +1,6 @@
 Meteor.methods({
 	importData: function() {
+		console.log('importData')
 		var projectRoot = process.cwd().split('.meteor')[0]
 
 		// Node.js modules
@@ -12,6 +13,8 @@ Meteor.methods({
             :
             '/home/zhdan/draka_quality_control/private/andmed.txt'
 
+		console.log('datapath', datapath)
+
 		fs.readFile(datapath, 'utf8', function (err,data) {
 
 			// Deal with error
@@ -19,17 +22,23 @@ Meteor.methods({
 				return console.log(err);
 
 			// Turn data into lines
-			var lines = data.split('\r\n')
+			// support both unix and windows newline
+			var lines = data.split(/\r?\n/)
+			console.log('lines', lines)
 
 			// For each row...
 			_.each(lines, function(value, i){
 
 				// Separate fields (code, description)
-				var line = value.split("	")
+				// support both spaces and tabs
+				var line = value.split(/	|        /)
+				console.log('line', line)
 
 				// Validate code
-				if (!line[0] || !parseInt(line[0]))
+				if (!line[0] || !parseInt(line[0])) {
+					console.log('return 1')
 					return false
+				}
 
 				// parseInt so sorting works with .find()
 				var code = parseInt(line[0])
@@ -37,6 +46,8 @@ Meteor.methods({
 
 				// Update or insert
 				fiber(function(){ // Error if fiber is not used, not totally sure why.
+					console.log('code', code)
+					console.log('desc', desc)
 					ProductMapCollection.upsert({code: code}, {$set: {code: code, description: desc}})
 				}).run()
 
